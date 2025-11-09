@@ -463,7 +463,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomTypes:
   - {fileID: 5470270789192088519, guid: c62d11a449685104e909583f2872668c, type: 3}
+  - {fileID: 1690735087616575293, guid: dc895efb4f737bd488e0640bafed28c9, type: 3}
+  - {fileID: 4183495607653184957, guid: 1257f7827769d7d46bd563f07f1a2dd5, type: 3}
+  - {fileID: 7926912163277418416, guid: 1ce9f7bdcabf4004e91767a899768573, type: 3}
+  - {fileID: 6255545285382978888, guid: 2ec5a337d74e503478eacf563ead91c0, type: 3}
+  masterRoom: {fileID: 1742655105626987169, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+    type: 3}
   openExits: []
+  roomCount: 20
 --- !u!4 &1594712725
 Transform:
   m_ObjectHideFlags: 0
