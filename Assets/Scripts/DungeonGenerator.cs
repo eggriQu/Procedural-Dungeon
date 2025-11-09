@@ -5,27 +5,32 @@ using UnityEngine;
 public class DungeonGenerator : MonoBehaviour
 {
     [SerializeField] private List<GameObject> roomTypes;
+    [SerializeField] private GameObject masterRoom;
     public List<GameObject> openExits;
+    [SerializeField] private int roomCount;
 
     void Start()
     {
-        Instantiate(roomTypes[0], gameObject.transform);
+        Instantiate(masterRoom, gameObject.transform);
+        StartCoroutine(SpawnRooms());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SpawnNextRoom();
-        }
+
     }
 
-    void SpawnNextRoom()
+    IEnumerator SpawnRooms()
     {
-        int selectedExit = Random.Range(0, roomTypes.Count-1);
-        //Instantiate(roomTypes[0], openExits[selectedExit].transform);
-        Instantiate(roomTypes[0], openExits[selectedExit].transform.position, openExits[selectedExit].transform.rotation, gameObject.transform);
-        openExits.Remove(openExits[selectedExit]);
+        while (roomCount > 0)
+        {
+            int selectedRoom = Random.Range(0, roomTypes.Count);
+            int selectedExit = Random.Range(0, openExits.Count);
+            Instantiate(roomTypes[selectedRoom], openExits[selectedExit].transform.position, openExits[selectedExit].transform.rotation, gameObject.transform);
+            openExits.Remove(openExits[selectedExit]);
+            roomCount--;
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 }
