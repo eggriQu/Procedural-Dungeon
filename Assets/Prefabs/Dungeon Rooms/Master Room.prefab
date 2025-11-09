@@ -497,6 +497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &6409212411916549296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1037,6 +1039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &4624926090609913586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1355,6 +1359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &375992655489775353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1451,6 +1457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &5177742318706478891
 Rigidbody:
   m_ObjectHideFlags: 0

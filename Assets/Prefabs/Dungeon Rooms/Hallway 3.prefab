@@ -69,6 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 7191284815184396950}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &6350818561272035347
 Rigidbody:
   m_ObjectHideFlags: 0

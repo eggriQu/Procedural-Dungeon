@@ -939,6 +939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 7340712480265881721}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &8001671837023123328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1146,6 +1148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 7340712480265881721}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &1064033386111783412
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1353,6 +1357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
   dungeonRoom: {fileID: 7340712480265881721}
   dungeonGen: {fileID: 0}
+  exitWall: {fileID: 1103926449712313175, guid: eae95cdb5ca892448a2f7e00d497e8a8,
+    type: 3}
 --- !u!54 &8083297699777894920
 Rigidbody:
   m_ObjectHideFlags: 0
