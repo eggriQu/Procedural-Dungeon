@@ -870,6 +870,8 @@ MonoBehaviour:
   - {fileID: 8185342262114131817}
   - {fileID: 7726497445017418075}
   - {fileID: 6147795531328452378}
+  doorObject: {fileID: 7400276245248706202, guid: 93ecfcbec6ded34488aad0ce5b361633,
+    type: 3}
 --- !u!1 &6147795531328452378
 GameObject:
   m_ObjectHideFlags: 0

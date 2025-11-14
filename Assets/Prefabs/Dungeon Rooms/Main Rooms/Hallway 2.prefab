@@ -406,6 +406,8 @@ MonoBehaviour:
   dungeonGen: {fileID: 0}
   roomExits:
   - {fileID: 1927541030020326362}
+  doorObject: {fileID: 7400276245248706202, guid: 93ecfcbec6ded34488aad0ce5b361633,
+    type: 3}
 --- !u!1 &5616701326346416362
 GameObject:
   m_ObjectHideFlags: 0

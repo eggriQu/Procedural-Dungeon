@@ -11,9 +11,12 @@ public class DungeonRoom : MonoBehaviour
     void Awake()
     {
         dungeonGen = GetComponentInParent<DungeonGenerator>();
-        for (int i = 0; i < roomExits.Count; i++)
+        if (roomExits != null)
         {
-            dungeonGen.openExits.Add(roomExits[i]);
+            for (int i = 0; i < roomExits.Count; i++)
+            {
+                dungeonGen.openExits.Add(roomExits[i]);
+            }
         }
     }
 
