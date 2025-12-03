@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -177,11 +178,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: -20
+  far clip plane: 984
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -205,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.23911761, y: 0.36964384, z: -0.09904577, w: 0.8923991}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -256,6 +257,38 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +432,7 @@ GameObject:
   - component: {fileID: 434813297}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870b1e59a6a080b49adf07d31008700b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 5
+  moveSpeed: 7
   playerRb: {fileID: 434813291}
   smoothDampTime: 0.3
 --- !u!1 &832575517
@@ -617,13 +650,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomTypes:
-  - {fileID: 5470270789192088519, guid: c62d11a449685104e909583f2872668c, type: 3}
-  - {fileID: 4663615033997694754, guid: 8ce1a6bb099bc7c48a7362cba7f5de50, type: 3}
-  - {fileID: 8355710331602812168, guid: 03acd85240fa8af4db5472398fb5a4a6, type: 3}
-  - {fileID: 1690735087616575293, guid: dc895efb4f737bd488e0640bafed28c9, type: 3}
-  - {fileID: 4183495607653184957, guid: 1257f7827769d7d46bd563f07f1a2dd5, type: 3}
-  - {fileID: 7926912163277418416, guid: 1ce9f7bdcabf4004e91767a899768573, type: 3}
-  - {fileID: 6255545285382978888, guid: 2ec5a337d74e503478eacf563ead91c0, type: 3}
+  - {fileID: 1797243811036322098, guid: f7c8f09152b03194e996383ef8ef51d1, type: 3}
+  - {fileID: 3606752685047830654, guid: 877ea02fffcdb3e4aa31512bd15091a8, type: 3}
+  - {fileID: 1439960916092328435, guid: 1890b88400e35f0409e762ceef45eb33, type: 3}
+  - {fileID: 1548623713269066725, guid: 27763690684a80242856659633214755, type: 3}
+  - {fileID: 5667824470100892817, guid: 831108d8ddff38a49a43274027afcb73, type: 3}
+  - {fileID: 3925179203863110786, guid: a3586f11cdda23542973d019bac2db2f, type: 3}
+  - {fileID: 6331799294728491034, guid: 5662e7c6511936746a7cb8f64e93e1cc, type: 3}
   endRoom: {fileID: 7347527466078647172, guid: 697c6ed9327700d41b9da06b7deef76a, type: 3}
   masterRoom: {fileID: 1742655105626987169, guid: 0ddee8f3990f6c040aaae6c8743de61e,
     type: 3}
@@ -631,9 +664,10 @@ MonoBehaviour:
     type: 3}
   doorObject: {fileID: 7400276245248706202, guid: 93ecfcbec6ded34488aad0ce5b361633,
     type: 3}
+  cameraObj: {fileID: 0}
   openExits: []
   selectedExitPoint: {fileID: 0}
-  roomCount: 7
+  roomCount: 10
   roomGenComplete: 0
   roomGenTime: 0.2
 --- !u!4 &1594712725

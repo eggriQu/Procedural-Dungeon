@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,9 +9,10 @@ public class DungeonGenerator : MonoBehaviour
     [Header("Room Objects")]
     [SerializeField] private List<GameObject> roomTypes;
     [SerializeField] private GameObject endRoom;
-    [SerializeField] private GameObject masterRoom;
+    public GameObject masterRoom;
     public GameObject exitWall;
     public GameObject doorObject;
+    public GameObject cameraObj;
 
     [Header("Room Gen Variables")]
     public List<GameObject> openExits;
