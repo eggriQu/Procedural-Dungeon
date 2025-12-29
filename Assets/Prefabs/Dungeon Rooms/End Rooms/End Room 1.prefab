@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 1757152991764471367}
   - component: {fileID: 4926713005023195656}
   - component: {fileID: 257059844396512322}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -601,6 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8082816528218161731}
   - component: {fileID: 1548366825056854356}
+  - component: {fileID: 2120214016314039687}
   m_Layer: 0
   m_Name: End Room 1
   m_TagString: Room
@@ -638,7 +639,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonGen: {fileID: 0}
+  cameraBounds: {fileID: 0}
   roomExits: []
+  cameraPrefab: {fileID: 4159687663856378122, guid: 290cfd2f509cc0e478d9a27c70a9667f,
+    type: 3}
+  roomCamera: {fileID: 0}
+  roomConfiner: {fileID: 0}
+--- !u!65 &2120214016314039687
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347527466078647172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 29, y: 15, z: 29}
+  m_Center: {x: 0, y: 7, z: 0}
 --- !u!1 &7786478720710426499
 GameObject:
   m_ObjectHideFlags: 0
