@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 8739672380847151624}
   - component: {fileID: 7419060059493645101}
   - component: {fileID: 4681848591276943857}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 6827700577471949746}
   - component: {fileID: 6299411641751750894}
   - component: {fileID: 7522770189489141092}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -884,7 +884,7 @@ PrefabInstance:
     - target: {fileID: 1742655105626987169, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: m_Name
-      value: Hallway 3 1
+      value: Hallway 4
       objectReference: {fileID: 0}
     - target: {fileID: 3386372847291569009, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}

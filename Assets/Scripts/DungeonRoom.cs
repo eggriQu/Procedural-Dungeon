@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class DungeonRoom : MonoBehaviour
 {
     [SerializeField] private DungeonGenerator dungeonGen;
+    [SerializeField] private BoxCollider cameraBounds;
     public List<GameObject> roomExits;
-    public GameObject cameraPivot;
-    public GameObject roomCamera;
+
+    public GameObject cameraPrefab;
+    public CinemachineCamera roomCamera;
+    public CinemachineConfiner3D roomConfiner;
+
+    private Vector3 cameraPosOffset;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +31,11 @@ public class DungeonRoom : MonoBehaviour
         {
 
         }
+
+        cameraPosOffset = new Vector3(transform.position.x - 6, transform.position.y + 5.5f, transform.position.z - 6);
+        roomCamera = Instantiate(cameraPrefab, cameraPosOffset, cameraPrefab.transform.rotation).GetComponent<CinemachineCamera>();
+        roomConfiner = roomCamera.gameObject.GetComponent<CinemachineConfiner3D>();
+        roomConfiner.BoundingVolume = cameraBounds;
     }
 
     // Update is called once per frame
@@ -37,7 +48,7 @@ public class DungeonRoom : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            roomCamera.SetActive(true);
+            roomCamera.gameObject.SetActive(true);
         }
     }
 
@@ -45,7 +56,7 @@ public class DungeonRoom : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            roomCamera.SetActive(false);
+            roomCamera.gameObject.SetActive(false);
         }
     }
 }

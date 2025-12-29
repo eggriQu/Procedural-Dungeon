@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4543732689475889159}
   - component: {fileID: 658888959619902877}
   - component: {fileID: 6589174882968728220}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -425,13 +425,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonGen: {fileID: 0}
+  cameraBounds: {fileID: 6274852893652135758}
   roomExits:
   - {fileID: 9014770484563468318}
   - {fileID: 7245767200603696268}
   - {fileID: 2826801717767593829}
   - {fileID: 9059288025004526524}
-  cameraPivot: {fileID: 4628055256891818314}
+  cameraPrefab: {fileID: 4159687663856378122, guid: 290cfd2f509cc0e478d9a27c70a9667f,
+    type: 3}
   roomCamera: {fileID: 0}
+  roomConfiner: {fileID: 0}
 --- !u!65 &6274852893652135758
 BoxCollider:
   m_ObjectHideFlags: 0
