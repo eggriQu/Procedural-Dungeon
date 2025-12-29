@@ -122,23 +122,8 @@ PrefabInstance:
     - target: {fileID: 1742655105626987169, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: m_Name
-      value: Room 3
+      value: Master Room Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 3490238849856742934, guid: 0ddee8f3990f6c040aaae6c8743de61e,
-        type: 3}
-      propertyPath: roomExits.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490238849856742934, guid: 0ddee8f3990f6c040aaae6c8743de61e,
-        type: 3}
-      propertyPath: 'roomExits.Array.data[1]'
-      value: 
-      objectReference: {fileID: 3237580606142127159}
-    - target: {fileID: 3490238849856742934, guid: 0ddee8f3990f6c040aaae6c8743de61e,
-        type: 3}
-      propertyPath: 'roomExits.Array.data[2]'
-      value: 
-      objectReference: {fileID: 3237580606142127159}
     - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: roomExits.Array.size

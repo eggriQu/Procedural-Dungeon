@@ -381,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7674983510041708830}
-  - component: {fileID: 3490238849856742934}
+  - component: {fileID: 5509803006670353497}
   - component: {fileID: 6274852893652135758}
   m_Layer: 0
   m_Name: Master Room
@@ -403,6 +403,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3478316950643087635}
+  - {fileID: 1997665879985022307}
   - {fileID: 8496705344271346534}
   - {fileID: 6399164482405117350}
   - {fileID: 1726890770638310790}
@@ -411,7 +413,7 @@ Transform:
   - {fileID: 6258044542008665229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3490238849856742934
+--- !u!114 &5509803006670353497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,21 +424,15 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39ec82d1d7ffa3b42bf19f02d15e48e8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DungeonRoom
+  m_EditorClassIdentifier: 
   dungeonGen: {fileID: 0}
-  cameraBounds: {fileID: 6274852893652135758}
-  roomEntered:
-    m_PersistentCalls:
-      m_Calls: []
   roomExits:
   - {fileID: 9014770484563468318}
   - {fileID: 7245767200603696268}
-  - {fileID: 9059288025004526524}
   - {fileID: 2826801717767593829}
-  cameraPrefab: {fileID: 6661679875613946190, guid: 290cfd2f509cc0e478d9a27c70a9667f,
-    type: 3}
-  roomCamera: {fileID: 0}
-  roomConfiner: {fileID: 0}
+  - {fileID: 9059288025004526524}
+  cameraPivot: {fileID: 4628055256891818314}
+  roomCamera: {fileID: 4919665223148364804}
 --- !u!65 &6274852893652135758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -525,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bce439b254af4d4dbd691fc65ff0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
-  dungeonRoom: {fileID: 0}
+  dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
 --- !u!54 &6409212411916549296
 Rigidbody:
@@ -776,6 +772,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4628055256891818314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997665879985022307}
+  m_Layer: 0
+  m_Name: Camera Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1997665879985022307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628055256891818314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7674983510041708830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4659779228576956551
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +914,151 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4919665223148364804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3478316950643087635}
+  - component: {fileID: 483454744094113425}
+  - component: {fileID: 580133897776614313}
+  - component: {fileID: 3319553938656958899}
+  - component: {fileID: 1281969982125033067}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3478316950643087635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919665223148364804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.23911761, y: 0.36964384, z: -0.09904577, w: 0.8923991}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7674983510041708830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &483454744094113425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919665223148364804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 1997665879985022307}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60
+    OrthographicSize: 9
+    NearClipPlane: -20
+    FarClipPlane: 984
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!114 &580133897776614313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919665223148364804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 1.5, z: 0}
+--- !u!114 &3319553938656958899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919665223148364804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePanTilt
+  ReferenceFrame: 0
+  RecenterTarget: 0
+  PanAxis:
+    Value: 45
+    Center: 0
+    Range: {x: -180, y: 180}
+    Wrap: 1
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
+  TiltAxis:
+    Value: 30
+    Center: 0
+    Range: {x: -70, y: 70}
+    Wrap: 0
+    Recentering:
+      Enabled: 0
+      Wait: 1
+      Time: 2
+    Restrictions: 0
+--- !u!114 &1281969982125033067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919665223148364804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d75924d76b05344aa410607bc57db98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner3D
+  BoundingVolume: {fileID: 6274852893652135758}
+  SlowingDistance: 0
 --- !u!1 &5760082468613223489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bce439b254af4d4dbd691fc65ff0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
-  dungeonRoom: {fileID: 0}
+  dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
 --- !u!54 &4624926090609913586
 Rigidbody:
@@ -1383,7 +1555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bce439b254af4d4dbd691fc65ff0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
-  dungeonRoom: {fileID: 0}
+  dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
 --- !u!54 &375992655489775353
 Rigidbody:
@@ -1479,7 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bce439b254af4d4dbd691fc65ff0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
-  dungeonRoom: {fileID: 0}
+  dungeonRoom: {fileID: 5509803006670353497}
   dungeonGen: {fileID: 0}
 --- !u!54 &5177742318706478891
 Rigidbody:
