@@ -11,13 +11,28 @@ PrefabInstance:
     - target: {fileID: 1742655105626987169, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: m_Name
-      value: Room1
+      value: Room 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3490238849856742934, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: roomExits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490238849856742934, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: 'roomExits.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2874669868752067830}
     - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: roomExits.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: 'roomExits.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2874669868752067830}
     - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: 'roomExits.Array.data[3]'
@@ -79,3 +94,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ddee8f3990f6c040aaae6c8743de61e, type: 3}
+--- !u!1 &2874669868752067830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2826801717767593829, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+    type: 3}
+  m_PrefabInstance: {fileID: 62540413511926675}
+  m_PrefabAsset: {fileID: 0}

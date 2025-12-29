@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bce439b254af4d4dbd691fc65ff0d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomExit
-  dungeonRoom: {fileID: 254161840278453986}
+  dungeonRoom: {fileID: 0}
   dungeonGen: {fileID: 0}
 --- !u!54 &6807375688028820291
 Rigidbody:
@@ -884,7 +884,7 @@ PrefabInstance:
     - target: {fileID: 1742655105626987169, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: m_Name
-      value: Hallway 3 1
+      value: Hallway 4
       objectReference: {fileID: 0}
     - target: {fileID: 3386372847291569009, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
@@ -911,6 +911,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 3490238849856742934, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: roomExits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490238849856742934, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: 'roomExits.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7818249272644931322}
     - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: roomExits.Array.size
@@ -1025,18 +1035,6 @@ PrefabInstance:
       addedObject: {fileID: 1287839134319382130}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ddee8f3990f6c040aaae6c8743de61e, type: 3}
---- !u!114 &254161840278453986 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5760163832558684859}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ec82d1d7ffa3b42bf19f02d15e48e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1674864406942131997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6399164482405117350, guid: 0ddee8f3990f6c040aaae6c8743de61e,

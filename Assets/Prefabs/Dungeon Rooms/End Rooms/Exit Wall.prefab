@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7104901664158489110}
   m_Layer: 0
   m_Name: Exit Wall
-  m_TagString: Untagged
+  m_TagString: Exit Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 5306821884940863910}
   m_Layer: 0
   m_Name: Wall1
-  m_TagString: Untagged
+  m_TagString: Exit Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
