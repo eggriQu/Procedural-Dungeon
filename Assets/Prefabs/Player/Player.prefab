@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1412161905303106580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +169,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6495771109473709830
@@ -185,14 +185,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   movementTransform: {fileID: 0}
-  moveSpeed: 20
+  moveSpeed: 10
   playerRb: {fileID: 1674909680059608792}
   smoothDampTime: 0.3
+  isMoving: 0
+  maxVelocity: {x: 15, y: 0, z: 15}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
   firePoint: {fileID: 1579889680011629842}
   bullet: {fileID: 8345662085694332815, guid: 86d684311376c7f439b79a2801bd2c23, type: 3}
+  weaponFired: 0
 --- !u!1 &6739422764010236747
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,8 +224,8 @@ Transform:
   m_GameObject: {fileID: 6739422764010236747}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0.946}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1579889680011629842}
@@ -261,7 +264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8b67e56791020984f9b72acdd6ee39d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

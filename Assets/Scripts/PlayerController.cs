@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     Vector2 smoothedDirection;
     Vector2 moveDirectionSmoothedVelocity;
     [SerializeField] private float smoothDampTime;
+    [SerializeField] private bool isMoving;
+    [SerializeField] private float maxVelocity;
 
     [Header("Input Variables")]
     private InputAction move;
@@ -20,8 +23,12 @@ public class PlayerController : MonoBehaviour
     [Header("Other Variables")]
     private Camera mainCamera;
     [SerializeField] private LayerMask groundMask;
+
+    [Header("Weapon Variables")]
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private bool weaponFired;
+    [SerializeField] private float movementCooldownTime;
 
     void Awake()
     {
@@ -38,6 +45,9 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         move.Enable();
+        move.performed += Move;
+        move.canceled += StopMoving;
+
         fire.Enable();
         fire.performed += Fire;
     }
@@ -50,8 +60,20 @@ public class PlayerController : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
+        StopCoroutine("MovementCooldown");
         Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
         bulletRb.AddForce(firePoint.forward * 5, ForceMode.Impulse);
+        StartCoroutine(MovementCooldown(movementCooldownTime));
+    }
+
+    private void Move(InputAction.CallbackContext context)
+    {
+        isMoving = true;
+    }
+
+    private void StopMoving(InputAction.CallbackContext context)
+    {
+        isMoving = false;
     }
 
     // Update is called once per frame
@@ -74,9 +96,19 @@ public class PlayerController : MonoBehaviour
         Vector3 rightRelative = smoothedDirection.x * transformRight;
 
         Vector3 moveDir = forwardRelative + rightRelative;
+        Vector3 movementVector = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
+        playerRb.maxLinearVelocity = maxVelocity;
 
-        playerRb.linearVelocity = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
-        //playerRb.linearVelocity = new Vector3(smoothedDirection.x * moveSpeed, playerRb.linearVelocity.y, smoothedDirection.y * moveSpeed);
+        if (isMoving && !weaponFired)
+        {
+            playerRb.linearVelocity = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
+        }
+        else if (isMoving && weaponFired)
+        {
+            Vector3 linearVelocity = playerRb.linearVelocity;
+            playerRb.linearVelocity = Vector3.SmoothDamp(linearVelocity, movementVector, ref linearVelocity, 1.3f);
+            playerRb.linearVelocity = playerRb.linearVelocity + new Vector3(moveDir.x, 0, moveDir.z);
+        }
     }
 
     private void Update()
@@ -115,5 +147,14 @@ public class PlayerController : MonoBehaviour
             // The Raycast did not hit anything.
             return (success: false, position: Vector3.zero);
         }
+    }
+
+    private IEnumerator MovementCooldown(float time)
+    {
+        weaponFired = true;
+        playerRb.linearVelocity = Vector3.zero;
+        playerRb.AddForce(-transform.forward * 300, ForceMode.Impulse);
+        yield return new WaitForSeconds(movementCooldownTime);
+        weaponFired = false;
     }
 }
