@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         StopCoroutine("MovementCooldown");
         Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
-        bulletRb.AddForce(firePoint.forward * 5, ForceMode.Impulse);
+        bulletRb.AddForce(firePoint.forward * 15, ForceMode.Impulse);
         StartCoroutine(MovementCooldown(movementCooldownTime));
     }
 
@@ -79,6 +79,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (maxVelocity > 14)
+        {
+            maxVelocity -= 0.07333333333f; // I actually forgot what this value was but :(
+            weaponFired = true;
+        }
+        else
+        {
+            maxVelocity = 14;
+            weaponFired = false;
+        }
+        playerRb.maxLinearVelocity = maxVelocity;
+
         moveDirection = move.ReadValue<Vector2>();
 
         smoothedDirection = Vector2.SmoothDamp(
@@ -97,7 +109,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDir = forwardRelative + rightRelative;
         Vector3 movementVector = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
-        playerRb.maxLinearVelocity = maxVelocity;
 
         if (isMoving && !weaponFired)
         {
@@ -105,8 +116,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (isMoving && weaponFired)
         {
-            Vector3 linearVelocity = playerRb.linearVelocity;
-            playerRb.linearVelocity = Vector3.SmoothDamp(linearVelocity, movementVector, ref linearVelocity, 1.3f);
             playerRb.linearVelocity = playerRb.linearVelocity + new Vector3(moveDir.x, 0, moveDir.z);
         }
     }
@@ -151,10 +160,11 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator MovementCooldown(float time)
     {
-        weaponFired = true;
+        //weaponFired = true;
+        maxVelocity = 18;
         playerRb.linearVelocity = Vector3.zero;
         playerRb.AddForce(-transform.forward * 300, ForceMode.Impulse);
         yield return new WaitForSeconds(movementCooldownTime);
-        weaponFired = false;
+        //weaponFired = false;
     }
 }

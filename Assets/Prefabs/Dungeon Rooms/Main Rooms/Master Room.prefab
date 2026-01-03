@@ -136,8 +136,8 @@ Transform:
   m_GameObject: {fileID: 688464325474701505}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1877429911644870388}
@@ -382,6 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7674983510041708830}
   - component: {fileID: 5509803006670353497}
+  - component: {fileID: 5686949717487160532}
   - component: {fileID: 6274852893652135758}
   m_Layer: 0
   m_Name: Master Room
@@ -435,6 +436,22 @@ MonoBehaviour:
     type: 3}
   roomCamera: {fileID: 0}
   roomConfiner: {fileID: 0}
+  roomEntered:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5686949717487160532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742655105626987169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3701be17acc9b46b8c91ae16e52ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
+  prefab: {fileID: 4666880071899970460, guid: 198e624fa77887e4aa1c7f7f45fa6b61, type: 3}
 --- !u!65 &6274852893652135758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -454,7 +471,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 29, y: 15, z: 29}
+  m_Size: {x: 28, y: 15, z: 28}
   m_Center: {x: 0, y: 7, z: 0}
 --- !u!1 &2826801717767593829
 GameObject:

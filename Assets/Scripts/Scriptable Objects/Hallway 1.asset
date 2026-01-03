@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c50598ad6b3d1148aa6e842f4f58ef4, type: 3}
+  m_Name: Hallway 1
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomType: {fileID: 1548623713269066725, guid: 27763690684a80242856659633214755,
+    type: 3}
+  hazards:
+  - {fileID: 4666880071899970460, guid: 198e624fa77887e4aa1c7f7f45fa6b61, type: 3}
+  - {fileID: 824637690911448574, guid: cf216ef19b9d4074885b77a9f34e1690, type: 3}
+  hazardElementFirst: 0
+  hazardElementLast: 1
+  enemiesElementFirst: 0
+  enemiesElementLast: 1

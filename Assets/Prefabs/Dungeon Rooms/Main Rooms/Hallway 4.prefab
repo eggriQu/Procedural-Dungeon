@@ -926,6 +926,12 @@ PrefabInstance:
       propertyPath: 'roomExits.Array.data[1]'
       value: 
       objectReference: {fileID: 7818249272644931322}
+    - target: {fileID: 5686949717487160532, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 11400000, guid: b83ee3e007499ba4c94a58d73cadf99b,
+        type: 2}
     - target: {fileID: 7674983510041708830, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: m_LocalPosition.x

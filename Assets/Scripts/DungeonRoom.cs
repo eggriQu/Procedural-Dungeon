@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DungeonRoom : MonoBehaviour
 {
-    [SerializeField] private DungeonGenerator dungeonGen;
+    [SerializeField] protected DungeonGenerator dungeonGen;
     [SerializeField] private BoxCollider cameraBounds;
     public List<GameObject> roomExits;
+    public List<GameObject> enemies;
 
     public GameObject cameraPrefab;
     public CinemachineCamera roomCamera;
     public CinemachineConfiner3D roomConfiner;
+
+    public UnityEvent roomEntered;
+    public UnityEvent roomExited;
+    public UnityEvent roomCleared;
+    public bool roomClear;
 
     private Vector3 cameraPosOffset;
 
@@ -41,7 +48,14 @@ public class DungeonRoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (enemies.Count > 0)
+        {
+            roomClear = false;
+        }
+        else
+        {
+            roomClear = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,6 +63,10 @@ public class DungeonRoom : MonoBehaviour
         if (other.CompareTag("Player") && !other.isTrigger)
         {
             roomCamera.gameObject.SetActive(true);
+            if(dungeonGen.roomGenComplete)
+            {
+                roomEntered.Invoke();
+            }
         }
     }
 
@@ -57,6 +75,11 @@ public class DungeonRoom : MonoBehaviour
         if (other.CompareTag("Player") && !other.isTrigger)
         {
             roomCamera.gameObject.SetActive(false);
+            if (dungeonGen.roomGenComplete)
+            {
+                roomEntered.Invoke();
+                roomExited.Invoke();
+            }
         }
     }
 }

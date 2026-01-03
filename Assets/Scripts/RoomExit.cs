@@ -8,8 +8,8 @@ public class RoomExit : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        dungeonGen = GameObject.Find("Dungeon Generator").GetComponent<DungeonGenerator>();
         dungeonRoom = GetComponentInParent<DungeonRoom>();
+        dungeonGen = GameObject.Find("Dungeon Generator").GetComponent<DungeonGenerator>();
     }
 
     // Update is called once per frame
@@ -26,11 +26,11 @@ public class RoomExit : MonoBehaviour
             dungeonGen.openExits.Remove(gameObject);
             if (!dungeonGen.roomGenComplete && gameObject != dungeonGen.selectedExitPoint)
             {
-                Instantiate(dungeonGen.exitWall, gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(dungeonGen.exitWall, gameObject.transform.position, gameObject.transform.rotation, dungeonRoom.transform);
             }
             else if (gameObject == dungeonGen.selectedExitPoint)
             {
-                Instantiate(dungeonGen.doorObject, gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(dungeonGen.doorObject, gameObject.transform.position, gameObject.transform.rotation, dungeonRoom.transform);
             }
             Destroy(gameObject);
         }

@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -17,9 +16,10 @@ public class DungeonGenerator : MonoBehaviour
     [Header("Room Gen Variables")]
     public List<GameObject> openExits;
     public GameObject selectedExitPoint;
-    [SerializeField] private int roomCount;
+    public int roomCount;
     public bool roomGenComplete;
     public float roomGenTime;
+    public UnityEvent allRoomsSpawned;
 
     void Start()
     {
@@ -35,6 +35,7 @@ public class DungeonGenerator : MonoBehaviour
 
     IEnumerator SpawnRooms()
     {
+        //Instantiate(masterRoom, gameObject.transform);
         while (roomCount > 0)
         {
             int selectedRoom = Random.Range(0, roomTypes.Count);
@@ -64,6 +65,7 @@ public class DungeonGenerator : MonoBehaviour
             openExits.Remove(selectedExitPoint);
             yield return new WaitForSeconds(roomGenTime);
         }
+        allRoomsSpawned.Invoke();
     }
 
     void SelectExit()

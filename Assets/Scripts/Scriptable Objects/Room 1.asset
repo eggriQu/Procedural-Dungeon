@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c50598ad6b3d1148aa6e842f4f58ef4, type: 3}
+  m_Name: Room 1
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomType: {fileID: 1797243811036322098, guid: f7c8f09152b03194e996383ef8ef51d1,
+    type: 3}
+  hazards:
+  - {fileID: 5515755378148126597, guid: 0775cb1354b21fd47b5e1fa81ed3f141, type: 3}
+  - {fileID: 585896353145038512, guid: 9577669854190df478eb6b885f604b8d, type: 3}
+  - {fileID: 7178805237532001168, guid: 944adb2b07cd4d64db8d950f99777bbe, type: 3}
+  - {fileID: 8198184798555595648, guid: e79115e5aed35ab408d99443e9cb1728, type: 3}
+  - {fileID: 8091252677972877499, guid: 3abe21309e3cd9e4ab9552471a85f901, type: 3}
+  hazardElementFirst: 0
+  hazardElementLast: 1
+  enemiesElementFirst: 2
+  enemiesElementLast: 4
