@@ -411,6 +411,7 @@ Transform:
   - {fileID: 3386372847291569009}
   - {fileID: 6680333473145715313}
   - {fileID: 6258044542008665229}
+  - {fileID: 5597242925781794304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5509803006670353497
@@ -432,13 +433,32 @@ MonoBehaviour:
   - {fileID: 7245767200603696268}
   - {fileID: 2826801717767593829}
   - {fileID: 9059288025004526524}
+  enemies: []
+  respawnPoint: {fileID: 8808622307677001032}
   cameraPrefab: {fileID: 4159687663856378122, guid: 290cfd2f509cc0e478d9a27c70a9667f,
     type: 3}
   roomCamera: {fileID: 0}
   roomConfiner: {fileID: 0}
+  player: {fileID: 0}
   roomEntered:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5509803006670353497}
+        m_TargetAssemblyTypeName: DungeonRoom, Assembly-CSharp
+        m_MethodName: SetRespawnPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  roomExited:
+    m_PersistentCalls:
       m_Calls: []
+  roomClear: 0
 --- !u!114 &5686949717487160532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,7 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3701be17acc9b46b8c91ae16e52ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
-  prefab: {fileID: 4666880071899970460, guid: 198e624fa77887e4aa1c7f7f45fa6b61, type: 3}
+  prefabs: []
+  room: {fileID: 0}
 --- !u!65 &6274852893652135758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1251,6 +1272,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8808622307677001032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5597242925781794304}
+  m_Layer: 0
+  m_Name: Respawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5597242925781794304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8808622307677001032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: -11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7674983510041708830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8858851937028762382
 GameObject:
   m_ObjectHideFlags: 0

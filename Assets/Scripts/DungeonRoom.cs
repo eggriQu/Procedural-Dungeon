@@ -10,14 +10,15 @@ public class DungeonRoom : MonoBehaviour
     [SerializeField] private BoxCollider cameraBounds;
     public List<GameObject> roomExits;
     public List<GameObject> enemies;
+    public GameObject respawnPoint;
 
     public GameObject cameraPrefab;
     public CinemachineCamera roomCamera;
     public CinemachineConfiner3D roomConfiner;
 
+    public PlayerController player;
     public UnityEvent roomEntered;
     public UnityEvent roomExited;
-    public UnityEvent roomCleared;
     public bool roomClear;
 
     private Vector3 cameraPosOffset;
@@ -26,6 +27,8 @@ public class DungeonRoom : MonoBehaviour
     void Awake()
     {
         dungeonGen = GetComponentInParent<DungeonGenerator>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+
         if (roomExits.Count != 0)
         {
             for (int i = 0; i < roomExits.Count; i++)
@@ -36,7 +39,7 @@ public class DungeonRoom : MonoBehaviour
         
         if (gameObject == dungeonGen.masterRoom)
         {
-
+            
         }
 
         cameraPosOffset = new Vector3(transform.position.x - 6, transform.position.y + 5.5f, transform.position.z - 6);
@@ -66,7 +69,9 @@ public class DungeonRoom : MonoBehaviour
             if(dungeonGen.roomGenComplete)
             {
                 roomEntered.Invoke();
+                player.currentRoom = this;
             }
+            //player.ChangeCurrentRoom(this);
         }
     }
 
@@ -77,7 +82,6 @@ public class DungeonRoom : MonoBehaviour
             roomCamera.gameObject.SetActive(false);
             if (dungeonGen.roomGenComplete)
             {
-                roomEntered.Invoke();
                 roomExited.Invoke();
             }
         }

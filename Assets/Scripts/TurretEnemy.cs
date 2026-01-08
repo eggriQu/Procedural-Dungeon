@@ -54,6 +54,7 @@ public class TurretEnemy : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
+            dungeonRoom.enemies.Remove(gameObject);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

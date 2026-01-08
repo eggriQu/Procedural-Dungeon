@@ -12,6 +12,7 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject exitWall;
     public GameObject doorObject;
     public GameObject cameraObj;
+    public PlayerController player;
 
     [Header("Room Gen Variables")]
     public List<GameObject> openExits;
@@ -23,7 +24,7 @@ public class DungeonGenerator : MonoBehaviour
 
     void Start()
     {
-        Instantiate(masterRoom, gameObject.transform);
+        player.currentRoom = Instantiate(masterRoom, gameObject.transform).GetComponent<DungeonRoom>();
         StartCoroutine(SpawnRooms());
     }
 
