@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1618109856229854760}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 5.5, y: 1, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalPosition: {x: 5.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 30, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6168964655076170978}
@@ -139,8 +139,8 @@ Transform:
   m_GameObject: {fileID: 5378324940526838796}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -5.5, y: 1, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalPosition: {x: -5.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 30, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6168964655076170978}
@@ -235,6 +235,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hallway 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 11400000, guid: eba4b673c9d6382439b884e6b374081e,
+        type: 2}
     - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: roomExits.Array.size

@@ -218,6 +218,11 @@ public class PlayerController : MonoBehaviour
         {
             TakeHazardDamage();
         }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(TakeDamage());
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1805429875231690297}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 5.5, y: 1, z: -4.6}
-  m_LocalScale: {x: 21.001999, y: 1, z: 1}
+  m_LocalPosition: {x: 5.5, y: 1.5, z: -4.6}
+  m_LocalScale: {x: 21.001999, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8545659547428426629}
@@ -139,8 +139,8 @@ Transform:
   m_GameObject: {fileID: 3892143939177777725}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000295043}
-  m_LocalPosition: {x: -10.5, y: 1, z: -5.5}
-  m_LocalScale: {x: 9.216599, y: 1, z: 0.90923}
+  m_LocalPosition: {x: -10.5, y: 1.5, z: -5.5}
+  m_LocalScale: {x: 9.216599, y: 2, z: 0.90923}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8545659547428426629}
@@ -250,8 +250,8 @@ Transform:
   m_GameObject: {fileID: 6644649541181293878}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -5.5, y: 1, z: -10}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: -5.5, y: 1.5, z: -10}
+  m_LocalScale: {x: 10, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8545659547428426629}
@@ -361,8 +361,8 @@ Transform:
   m_GameObject: {fileID: 7558400627123858822}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000295043}
-  m_LocalPosition: {x: -4.84, y: 1, z: 5.5}
-  m_LocalScale: {x: 20.70705, y: 1, z: 0.90923}
+  m_LocalPosition: {x: -4.84, y: 1.5, z: 5.5}
+  m_LocalScale: {x: 20.70705, y: 2, z: 0.90923}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8545659547428426629}
@@ -704,6 +704,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 11400000, guid: c4aebcfcf9529534997d643314097de6,
+        type: 2}
     - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: roomExits.Array.size

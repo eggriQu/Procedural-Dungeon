@@ -20,6 +20,7 @@ public class DungeonRoom : MonoBehaviour
     public UnityEvent roomEntered;
     public UnityEvent roomExited;
     public bool roomClear;
+    public Room room;
 
     private Vector3 cameraPosOffset;
 
@@ -37,12 +38,12 @@ public class DungeonRoom : MonoBehaviour
             }
         }
         
-        if (gameObject == dungeonGen.masterRoom)
+        if (gameObject == dungeonGen.endRoom)
         {
             
         }
 
-        cameraPosOffset = new Vector3(transform.position.x - 6, transform.position.y + 5.5f, transform.position.z - 6);
+        cameraPosOffset = new Vector3(transform.position.x - 4.5f, transform.position.y + 6.5f, transform.position.z - 4.5f);
         roomCamera = Instantiate(cameraPrefab, cameraPosOffset, cameraPrefab.transform.rotation).GetComponent<CinemachineCamera>();
         roomConfiner = roomCamera.gameObject.GetComponent<CinemachineConfiner3D>();
         roomConfiner.BoundingVolume = cameraBounds;
@@ -85,5 +86,10 @@ public class DungeonRoom : MonoBehaviour
                 roomExited.Invoke();
             }
         }
+    }
+
+    void ChangeDoorType()
+    {
+
     }
 }

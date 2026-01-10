@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class Door : MonoBehaviour
 {
     [SerializeField] private DungeonGenerator dungeonGen;
-    [SerializeField] private DungeonRoom room;
+    [SerializeField] private DungeonRoom dungeonRoom;
     [SerializeField] private Rigidbody rb;
     public PlayerController player;
 
@@ -15,9 +15,19 @@ public class Door : MonoBehaviour
     {
         dungeonGen = GameObject.Find("Dungeon Generator").GetComponent<DungeonGenerator>();
         player = GameObject.Find("Player").GetComponent<PlayerController>();
-        room = GetComponentInParent<DungeonRoom>();
+        dungeonRoom = GetComponentInParent<DungeonRoom>();
         dungeonGen.allRoomsSpawned.AddListener(Open);
         dungeonGen.allRoomsSpawned.AddListener(DisableRigidbody);
+
+        //if (dungeonRoom.room.roomType == dungeonGen.endRoom)
+        //{
+        //    dungeonGen.endDoors.Add(gameObject);
+        //}
+
+        if (!enabled)
+        {
+            enabled = true;
+        }
     }
 
     // Update is called once per frame
@@ -28,11 +38,11 @@ public class Door : MonoBehaviour
 
         if (player.currentRoom.roomClear)
         {
-            transform.position = new Vector3(transform.position.x, 5, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 6.5f, transform.position.z);
         }
         else
         {
-            transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 2, transform.position.z);
         }
     }
 

@@ -17,10 +17,13 @@ MonoBehaviour:
   hazards:
   - {fileID: 5515755378148126597, guid: 0775cb1354b21fd47b5e1fa81ed3f141, type: 3}
   - {fileID: 585896353145038512, guid: 9577669854190df478eb6b885f604b8d, type: 3}
+  - {fileID: 7757889833361374296, guid: 09ce2e24345aa6c408f299a49852e73b, type: 3}
   - {fileID: 7178805237532001168, guid: 944adb2b07cd4d64db8d950f99777bbe, type: 3}
   - {fileID: 8198184798555595648, guid: e79115e5aed35ab408d99443e9cb1728, type: 3}
   - {fileID: 8091252677972877499, guid: 3abe21309e3cd9e4ab9552471a85f901, type: 3}
+  - {fileID: 2076885294026396136, guid: 4401c87deca469a46a67ad18cd592e9e, type: 3}
+  - {fileID: 3104136914867043361, guid: b764024a8ebfd1f4caf62b9ff10e2803, type: 3}
   hazardElementFirst: 0
-  hazardElementLast: 1
-  enemiesElementFirst: 2
-  enemiesElementLast: 4
+  hazardElementLast: 2
+  enemiesElementFirst: 3
+  enemiesElementLast: 7

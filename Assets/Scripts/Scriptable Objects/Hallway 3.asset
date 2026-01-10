@@ -16,8 +16,8 @@ MonoBehaviour:
     type: 3}
   hazards:
   - {fileID: 5000789858281329449, guid: 1f61ef3059981614d937c8b8f520d6ac, type: 3}
-  - {fileID: 5000789858281329449, guid: 1f61ef3059981614d937c8b8f520d6ac, type: 3}
+  - {fileID: 3826051880384758561, guid: eeb95a8076aa62540b0721e2842d8220, type: 3}
   hazardElementFirst: 0
   hazardElementLast: 1
-  enemiesElementFirst: 0
+  enemiesElementFirst: 1
   enemiesElementLast: 1

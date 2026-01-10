@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 205383215089169801}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.5, y: 1, z: -14.5}
-  m_LocalScale: {x: 9, y: 1, z: 1}
+  m_LocalPosition: {x: 9.5, y: 1.5, z: -14.5}
+  m_LocalScale: {x: 9, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2214028469823758296}
@@ -139,8 +139,8 @@ Transform:
   m_GameObject: {fileID: 3838860138643189177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -14.5, y: 1, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalPosition: {x: -14.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 30, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2214028469823758296}
@@ -250,8 +250,8 @@ Transform:
   m_GameObject: {fileID: 4141905082577076448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 14.5, y: 1, z: -0.5}
-  m_LocalScale: {x: 29, y: 1, z: 1}
+  m_LocalPosition: {x: 14.5, y: 1.5, z: -0.5}
+  m_LocalScale: {x: 29, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2214028469823758296}
@@ -397,8 +397,8 @@ Transform:
   m_GameObject: {fileID: 5779653775513774715}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 1, z: -14.5}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: -10, y: 1.5, z: -14.5}
+  m_LocalScale: {x: 10, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2214028469823758296}
@@ -600,8 +600,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8082816528218161731}
-  - component: {fileID: 1548366825056854356}
   - component: {fileID: 2120214016314039687}
+  - component: {fileID: 1548366825056854356}
+  - component: {fileID: 7862790765446985667}
   m_Layer: 0
   m_Name: End Room 1
   m_TagString: Room
@@ -626,28 +627,6 @@ Transform:
   - {fileID: 2214028469823758296}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1548366825056854356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7347527466078647172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ec82d1d7ffa3b42bf19f02d15e48e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dungeonGen: {fileID: 0}
-  cameraBounds: {fileID: 0}
-  roomExits: []
-  cameraPrefab: {fileID: 4159687663856378122, guid: 290cfd2f509cc0e478d9a27c70a9667f,
-    type: 3}
-  roomCamera: {fileID: 0}
-  roomConfiner: {fileID: 0}
-  roomEntered:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &2120214016314039687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -669,6 +648,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 28, y: 15, z: 28}
   m_Center: {x: 0, y: 7, z: 0}
+--- !u!114 &1548366825056854356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347527466078647172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ec82d1d7ffa3b42bf19f02d15e48e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonGen: {fileID: 0}
+  cameraBounds: {fileID: 0}
+  roomExits: []
+  enemies: []
+  respawnPoint: {fileID: 0}
+  cameraPrefab: {fileID: 4159687663856378122, guid: 290cfd2f509cc0e478d9a27c70a9667f,
+    type: 3}
+  roomCamera: {fileID: 0}
+  roomConfiner: {fileID: 0}
+  player: {fileID: 0}
+  roomEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  roomExited:
+    m_PersistentCalls:
+      m_Calls: []
+  roomClear: 0
+  room: {fileID: 11400000, guid: 2f5ac58cbe2be94448842ed848d5b29a, type: 2}
+--- !u!114 &7862790765446985667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347527466078647172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3701be17acc9b46b8c91ae16e52ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
+  prefabs: []
+  room: {fileID: 11400000, guid: 2f5ac58cbe2be94448842ed848d5b29a, type: 2}
 --- !u!1 &7786478720710426499
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,8 +720,8 @@ Transform:
   m_GameObject: {fileID: 7786478720710426499}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 14.5}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 14.5}
+  m_LocalScale: {x: 30, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2214028469823758296}

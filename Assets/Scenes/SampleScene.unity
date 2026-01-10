@@ -1892,6 +1892,7 @@ MonoBehaviour:
   cameraObj: {fileID: 0}
   player: {fileID: 1428470581}
   openExits: []
+  endDoors: []
   selectedExitPoint: {fileID: 0}
   roomCount: 10
   roomGenComplete: 0
@@ -2001,12 +2002,12 @@ PrefabInstance:
     - target: {fileID: 3339950793015885704, guid: 74d11a7885b318c49ba20435ad6c1084,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 3339950793015885704, guid: 74d11a7885b318c49ba20435ad6c1084,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -11.771
       objectReference: {fileID: 0}
     - target: {fileID: 3339950793015885704, guid: 74d11a7885b318c49ba20435ad6c1084,
         type: 3}
@@ -2042,11 +2043,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495771109473709830, guid: 74d11a7885b318c49ba20435ad6c1084,
-        type: 3}
-      propertyPath: health
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6495771109473709830, guid: 74d11a7885b318c49ba20435ad6c1084,
         type: 3}

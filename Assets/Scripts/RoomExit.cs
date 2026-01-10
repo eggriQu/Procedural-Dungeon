@@ -5,7 +5,6 @@ public class RoomExit : MonoBehaviour
     [SerializeField] private DungeonRoom dungeonRoom;
     [SerializeField] private DungeonGenerator dungeonGen;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         dungeonRoom = GetComponentInParent<DungeonRoom>();
@@ -30,6 +29,7 @@ public class RoomExit : MonoBehaviour
             }
             else if (gameObject == dungeonGen.selectedExitPoint)
             {
+                //DungeonRoom otherRoom = other.GetComponent<DungeonRoom>();
                 Instantiate(dungeonGen.doorObject, gameObject.transform.position, gameObject.transform.rotation, dungeonRoom.transform);
             }
             Destroy(gameObject);

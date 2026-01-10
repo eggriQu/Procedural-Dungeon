@@ -20,4 +20,14 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
+            enemy.TakeDamage(1);
+            Destroy(gameObject);
+        }
+    }
 }

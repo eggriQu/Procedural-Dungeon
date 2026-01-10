@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 6839285497776778591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 14.5, y: 1, z: -0.5}
-  m_LocalScale: {x: 29, y: 1, z: 1}
+  m_LocalPosition: {x: 14.5, y: 1.5, z: -0.5}
+  m_LocalScale: {x: 29, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5988245397733535476}
@@ -124,6 +124,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
+        type: 3}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 11400000, guid: b82e5f3b55f357744b3e63ea943a28ea,
+        type: 2}
     - target: {fileID: 5509803006670353497, guid: 0ddee8f3990f6c040aaae6c8743de61e,
         type: 3}
       propertyPath: roomExits.Array.size

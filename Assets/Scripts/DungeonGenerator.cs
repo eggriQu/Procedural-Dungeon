@@ -7,7 +7,7 @@ public class DungeonGenerator : MonoBehaviour
 {
     [Header("Room Objects")]
     [SerializeField] private List<GameObject> roomTypes;
-    [SerializeField] private GameObject endRoom;
+    public GameObject endRoom;
     public GameObject masterRoom;
     public GameObject exitWall;
     public GameObject doorObject;
@@ -16,6 +16,7 @@ public class DungeonGenerator : MonoBehaviour
 
     [Header("Room Gen Variables")]
     public List<GameObject> openExits;
+    public List<GameObject> endDoors;
     public GameObject selectedExitPoint;
     public int roomCount;
     public bool roomGenComplete;

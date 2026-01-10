@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c50598ad6b3d1148aa6e842f4f58ef4, type: 3}
-  m_Name: Hallway 2
+  m_Name: End Room
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  roomType: {fileID: 5667824470100892817, guid: 831108d8ddff38a49a43274027afcb73,
+  roomType: {fileID: 7347527466078647172, guid: 697c6ed9327700d41b9da06b7deef76a,
     type: 3}
   hazards:
-  - {fileID: 5000789858281329449, guid: 1f61ef3059981614d937c8b8f520d6ac, type: 3}
-  - {fileID: 3826051880384758561, guid: eeb95a8076aa62540b0721e2842d8220, type: 3}
+  - {fileID: 3453917049895207503, guid: 7e1c91e7ee2dd0d44bbed4f974c48343, type: 3}
+  - {fileID: 2076885294026396136, guid: 4401c87deca469a46a67ad18cd592e9e, type: 3}
+  - {fileID: 3104136914867043361, guid: b764024a8ebfd1f4caf62b9ff10e2803, type: 3}
   hazardElementFirst: 0
-  hazardElementLast: 1
+  hazardElementLast: 0
   enemiesElementFirst: 1
-  enemiesElementLast: 1
+  enemiesElementLast: 2
