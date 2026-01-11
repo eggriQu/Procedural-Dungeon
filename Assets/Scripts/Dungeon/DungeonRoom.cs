@@ -87,9 +87,4 @@ public class DungeonRoom : MonoBehaviour
             }
         }
     }
-
-    void ChangeDoorType()
-    {
-
-    }
 }

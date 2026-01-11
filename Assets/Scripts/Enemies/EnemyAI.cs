@@ -85,8 +85,8 @@ public class EnemyAI : MonoBehaviour, IDamagable
         enemyHp = enemyHp - damage;
         if (enemyHp <= 0)
         {
-            Destroy(gameObject);
             dungeonRoom.enemies.Remove(gameObject);
+            Destroy(gameObject);
         }
     }
 }
