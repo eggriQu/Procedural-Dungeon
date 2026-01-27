@@ -43,7 +43,7 @@ public class DungeonRoom : MonoBehaviour
             
         }
 
-        cameraPosOffset = new Vector3(transform.position.x - 4.5f, transform.position.y + 6.5f, transform.position.z - 4.5f);
+        cameraPosOffset = new Vector3(transform.position.x - 4.5f, transform.position.y + 6, transform.position.z - 4.5f);
         roomCamera = Instantiate(cameraPrefab, cameraPosOffset, cameraPrefab.transform.rotation).GetComponent<CinemachineCamera>();
         roomConfiner = roomCamera.gameObject.GetComponent<CinemachineConfiner3D>();
         roomConfiner.BoundingVolume = cameraBounds;

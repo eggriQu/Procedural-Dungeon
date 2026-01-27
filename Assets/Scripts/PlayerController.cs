@@ -15,10 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float smoothDampTime;
     [SerializeField] private bool isMoving;
     [SerializeField] private float maxVelocity;
+    [SerializeField] private bool isJumpHeld;
+    [SerializeField] private bool isGrounded;
+    private bool gravityIncrease;
 
     [Header("Input Variables")]
     private InputAction move;
     private InputAction fire;
+    private InputAction jump;
 
     [Header("Other Variables")]
     private Camera mainCamera;
@@ -26,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public DungeonRoom currentRoom;
     public Vector3 respawnPoint;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private Animator animator;
 
     [Header("Weapon Variables")]
     [SerializeField] private Transform firePoint;
@@ -45,6 +50,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         move = InputSystem.actions.FindAction("Move");
         fire = InputSystem.actions.FindAction("Fire");
+        jump = InputSystem.actions.FindAction("Jump");
     }
 
     private void Start()
@@ -60,6 +66,10 @@ public class PlayerController : MonoBehaviour
 
         fire.Enable();
         fire.performed += Fire;
+
+        jump.Enable();
+        jump.performed += ReadyJump;
+        jump.canceled += ReleaseJump;
     }
 
     private void OnDisable()
@@ -68,9 +78,31 @@ public class PlayerController : MonoBehaviour
         fire.Disable();
     }
 
-    private void Fire(InputAction.CallbackContext context)
+    private void ReadyJump(InputAction.CallbackContext context)
     {
         if (shotsLeft > 0 && !isReloading)
+        {
+            isJumpHeld = true;
+        }
+    }
+
+    private void ReleaseJump(InputAction.CallbackContext context)
+    {
+        if (shotsLeft > 0 && !isReloading)
+        {
+            isJumpHeld = false;
+            playerRb.linearVelocity = Vector3.zero;
+            playerRb.AddForce(Vector3.up * 180, ForceMode.Impulse);
+            StartCoroutine(IncreaseGravity());
+            Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
+            bulletRb.AddForce(firePoint.forward * 10, ForceMode.Impulse);
+            shotsLeft--;
+        }
+    }
+
+    private void Fire(InputAction.CallbackContext context)
+    {
+        if (shotsLeft > 0 && !isReloading && !isJumpHeld)
         {
             StopCoroutine("MovementCooldown");
             Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
@@ -78,7 +110,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(MovementCooldown(movementCooldownTime));
             shotsLeft--;
         }
-        else if (shotsLeft <= 0 && !isReloading)
+        else if (shotsLeft <= 0 && !isReloading && !isJumpHeld)
         {
             StartCoroutine(Reload(reloadTime));
         }
@@ -141,6 +173,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Aim();
+
+        if (!isGrounded && gravityIncrease)
+        {
+            playerRb.AddForce(Vector3.down * 2.5f, ForceMode.Acceleration);
+        }
     }
 
     private void Aim()
@@ -156,7 +193,14 @@ public class PlayerController : MonoBehaviour
             direction.y = 0;
 
             // Make the transform look in the direction.
-            transform.forward = direction;
+            if (!isJumpHeld)
+            {
+                transform.forward = direction;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(90, transform.rotation.y, transform.rotation.z);
+            }
         }
     }
 
@@ -186,6 +230,12 @@ public class PlayerController : MonoBehaviour
         //weaponFired = false;
     }
 
+    private IEnumerator IncreaseGravity()
+    {
+        yield return new WaitForSeconds(1);
+        gravityIncrease = true;
+    }
+
     private IEnumerator Reload(float time)
     {
         isReloading = true;
@@ -210,6 +260,7 @@ public class PlayerController : MonoBehaviour
     private void TakeHazardDamage()
     {
         transform.position = currentRoom.respawnPoint.transform.position;
+        StartCoroutine(TakeDamage());
     }
 
     void OnCollisionEnter(Collision collision)
@@ -222,6 +273,20 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             StartCoroutine(TakeDamage());
+        }
+
+        if (collision.gameObject.layer == 3)
+        {
+            isGrounded = true;
+            gravityIncrease = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            isGrounded = false;
         }
     }
 

@@ -10,6 +10,7 @@ public class ChaseState : State
 
     public override void Handle()
     {
-        controller.rb.linearVelocity = controller.followDirection.normalized * 6;
+        //controller.rb.linearVelocity = controller.followDirection.normalized * 6;
+        controller.rb.linearVelocity = new Vector3(controller.followDirection.x, 0, controller.followDirection.z).normalized * 6;
     }
 }
