@@ -80,14 +80,17 @@ public class PlayerController : MonoBehaviour
 
     private void ReadyJump(InputAction.CallbackContext context)
     {
+        /*
         if (shotsLeft > 0 && !isReloading)
         {
             isJumpHeld = true;
         }
+        */
     }
 
     private void ReleaseJump(InputAction.CallbackContext context)
     {
+        /*
         if (shotsLeft > 0 && !isReloading)
         {
             isJumpHeld = false;
@@ -98,10 +101,12 @@ public class PlayerController : MonoBehaviour
             bulletRb.AddForce(firePoint.forward * 10, ForceMode.Impulse);
             shotsLeft--;
         }
+        */
     }
 
     private void Fire(InputAction.CallbackContext context)
     {
+        /*
         if (shotsLeft > 0 && !isReloading && !isJumpHeld)
         {
             StopCoroutine("MovementCooldown");
@@ -111,6 +116,17 @@ public class PlayerController : MonoBehaviour
             shotsLeft--;
         }
         else if (shotsLeft <= 0 && !isReloading && !isJumpHeld)
+        {
+            StartCoroutine(Reload(reloadTime));
+        }
+        */
+        if (shotsLeft > 0 && !isReloading)
+        {
+            Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
+            bulletRb.AddForce(firePoint.forward * 15, ForceMode.Impulse);
+            shotsLeft--;
+        }
+        else if (shotsLeft <= 0 && !isReloading)
         {
             StartCoroutine(Reload(reloadTime));
         }
@@ -129,6 +145,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        /*
         if (maxVelocity > 14)
         {
             maxVelocity -= 0.07333333333f; // I actually forgot what this value was :(
@@ -140,6 +157,7 @@ public class PlayerController : MonoBehaviour
             weaponFired = false;
         }
         playerRb.maxLinearVelocity = maxVelocity;
+        */
 
         moveDirection = move.ReadValue<Vector2>();
 
@@ -160,13 +178,13 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = forwardRelative + rightRelative;
         Vector3 movementVector = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
 
-        if (isMoving && !weaponFired)
+        if (isMoving)
         {
             playerRb.linearVelocity = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
         }
-        else if (isMoving && weaponFired)
+        else if (!isMoving)
         {
-            playerRb.linearVelocity = playerRb.linearVelocity + new Vector3(moveDir.x, 0, moveDir.z);
+            playerRb.linearVelocity = new Vector3(0, playerRb.linearVelocity.y, 0);
         }
     }
 
@@ -290,12 +308,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Enemy") && !invincible)
+        if (collision.gameObject.CompareTag("Enemy") && !invincible)
         {
             StartCoroutine(TakeDamage());
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 

@@ -42,6 +42,7 @@ public class DungeonGenerator : MonoBehaviour
         {
             int selectedRoom = Random.Range(0, roomTypes.Count);
             SelectExit();
+            /*
             if (roomCount % 4 == 0) // Every 4 rooms spawn a hallway
             {
                 Instantiate(roomTypes[SelectRandomHallway()], selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
@@ -50,6 +51,8 @@ public class DungeonGenerator : MonoBehaviour
             {
                 Instantiate(roomTypes[selectedRoom], selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
             }
+            */
+            Instantiate(roomTypes[selectedRoom], selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
             openExits.Remove(selectedExitPoint);
             roomCount--;
             yield return new WaitForSeconds(roomGenTime);
