@@ -186,6 +186,8 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.linearVelocity = new Vector3(0, playerRb.linearVelocity.y, 0);
         }
+
+        Aim();
     }
 
     private void Update()
