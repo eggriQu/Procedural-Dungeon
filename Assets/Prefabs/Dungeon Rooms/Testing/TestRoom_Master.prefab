@@ -295,7 +295,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1796609392280471980}
   - component: {fileID: 5599221998414145073}
-  - component: {fileID: 3761201501865658517}
   - component: {fileID: 8750807735742008052}
   m_Layer: 0
   m_Name: TestRoom_Master
@@ -346,7 +345,6 @@ MonoBehaviour:
   - {fileID: 7187767915811300636}
   - {fileID: 6049503106417549193}
   - {fileID: 711101690079335194}
-  enemies: []
   respawnPoint: {fileID: 2407438125709378760}
   cameraPrefab: {fileID: 0}
   roomCamera: {fileID: 0}
@@ -354,38 +352,13 @@ MonoBehaviour:
   player: {fileID: 0}
   roomEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5599221998414145073}
-        m_TargetAssemblyTypeName: DungeonRoom, Assembly-CSharp
-        m_MethodName: SetRespawnPoint
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   roomExited:
     m_PersistentCalls:
       m_Calls: []
   roomClear: 0
   room: {fileID: 11400000, guid: 1a6fbd32d1e532d40bb4d3b35155cec8, type: 2}
---- !u!114 &3761201501865658517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5586268768055500127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3701be17acc9b46b8c91ae16e52ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
-  prefabs: []
-  room: {fileID: 11400000, guid: 1a6fbd32d1e532d40bb4d3b35155cec8, type: 2}
+  chunk: {fileID: 11400000, guid: 21b10885bf4c8e54d83f54d1b8eb8926, type: 2}
 --- !u!65 &8750807735742008052
 BoxCollider:
   m_ObjectHideFlags: 0

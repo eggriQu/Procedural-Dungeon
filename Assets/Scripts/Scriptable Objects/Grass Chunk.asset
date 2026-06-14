@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22909ff2e0ed1f74c9ed97f3ad26d936, type: 3}
+  m_Name: Grass Chunk
+  m_EditorClassIdentifier: Assembly-CSharp::Chunk
+  resources:
+  - {fileID: 7645607808550603298, guid: f67c561c23b630241b3482a111fa9210, type: 3}
+  - {fileID: 1191777495129811684, guid: 826624c83a463ea48ae882ef135f118e, type: 3}
+  - {fileID: 6533362682699124393, guid: dda5ef2b1dab8ab419916d3be797ccc8, type: 3}
+  - {fileID: 8767487138531539870, guid: ed60032bf32de7542ae90834cb215979, type: 3}
+  - {fileID: 3876795179198584464, guid: e14ff232b45701c48b37bb6e234502be, type: 3}
+  elementFirst: 0
+  elementLast: 5
+  spawnRange:
+    x: 15
+    y: 15

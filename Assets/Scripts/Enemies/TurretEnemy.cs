@@ -14,7 +14,6 @@ public class TurretEnemy : MonoBehaviour
     void Awake()
     {
         dungeonRoom = GetComponentInParent<DungeonRoom>();
-        dungeonRoom.enemies.Add(gameObject);
         player = GameObject.Find("Player");
         dungeonRoom.roomEntered.AddListener(Shoot);
         dungeonRoom.roomExited.AddListener(StopShooting);
@@ -54,7 +53,6 @@ public class TurretEnemy : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            dungeonRoom.enemies.Remove(gameObject);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

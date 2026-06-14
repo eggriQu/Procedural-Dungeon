@@ -22,7 +22,6 @@ public class EnemyAI : MonoBehaviour, IDamagable
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         dungeonRoom = GetComponentInParent<DungeonRoom>();
-        dungeonRoom.enemies.Add(gameObject);
 
         // Initialize the starting state
         StartCoroutine(Patrol());
@@ -85,7 +84,6 @@ public class EnemyAI : MonoBehaviour, IDamagable
         enemyHp = enemyHp - damage;
         if (enemyHp <= 0)
         {
-            dungeonRoom.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }

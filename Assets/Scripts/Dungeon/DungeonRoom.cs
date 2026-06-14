@@ -9,7 +9,6 @@ public class DungeonRoom : MonoBehaviour
     [SerializeField] protected DungeonGenerator dungeonGen;
     [SerializeField] private BoxCollider cameraBounds;
     public List<GameObject> roomExits;
-    public List<GameObject> enemies;
     public GameObject respawnPoint;
 
     public GameObject cameraPrefab;
@@ -21,6 +20,7 @@ public class DungeonRoom : MonoBehaviour
     public UnityEvent roomExited;
     public bool roomClear;
     public Room room;
+    public Chunk chunk;
 
     private Vector3 cameraPosOffset;
 
@@ -43,28 +43,24 @@ public class DungeonRoom : MonoBehaviour
             
         }
 
-        cameraPosOffset = new Vector3(transform.position.x - 4.5f, transform.position.y + 6, transform.position.z - 4.5f);
-        roomCamera = Instantiate(cameraPrefab, cameraPosOffset, cameraPrefab.transform.rotation).GetComponent<CinemachineCamera>();
-        roomConfiner = roomCamera.gameObject.GetComponent<CinemachineConfiner3D>();
-        roomConfiner.BoundingVolume = cameraBounds;
+        if (cameraPrefab != null)
+        {
+            cameraPosOffset = new Vector3(transform.position.x - 4.5f, transform.position.y + 6, transform.position.z - 4.5f);
+            roomCamera = Instantiate(cameraPrefab, cameraPosOffset, cameraPrefab.transform.rotation).GetComponent<CinemachineCamera>();
+            roomConfiner = roomCamera.gameObject.GetComponent<CinemachineConfiner3D>();
+            roomConfiner.BoundingVolume = cameraBounds;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemies.Count > 0)
-        {
-            roomClear = false;
-        }
-        else
-        {
-            roomClear = true;
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger && cameraPrefab != null)
         {
             roomCamera.gameObject.SetActive(true);
             if(dungeonGen.roomGenComplete)
@@ -72,13 +68,12 @@ public class DungeonRoom : MonoBehaviour
                 roomEntered.Invoke();
                 player.currentRoom = this;
             }
-            //player.ChangeCurrentRoom(this);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger && cameraPrefab != null)
         {
             roomCamera.gameObject.SetActive(false);
             if (dungeonGen.roomGenComplete)

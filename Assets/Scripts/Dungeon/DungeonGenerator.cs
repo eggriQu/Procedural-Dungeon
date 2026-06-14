@@ -7,10 +7,11 @@ public class DungeonGenerator : MonoBehaviour
 {
     [Header("Room Objects")]
     [SerializeField] private List<GameObject> roomTypes;
+    public List<GameObject> chunkList;
     public GameObject endRoom;
     public GameObject masterRoom;
     public GameObject exitWall;
-    public GameObject doorObject;
+    public GameObject treeObject;
     public GameObject cameraObj;
     public PlayerController player;
 
@@ -26,7 +27,7 @@ public class DungeonGenerator : MonoBehaviour
     void Start()
     {
         player.currentRoom = Instantiate(masterRoom, gameObject.transform).GetComponent<DungeonRoom>();
-        StartCoroutine(SpawnRooms());
+        StartCoroutine(SpawnChunks());
     }
 
     // Update is called once per frame
@@ -35,38 +36,30 @@ public class DungeonGenerator : MonoBehaviour
 
     }
 
-    IEnumerator SpawnRooms()
+    IEnumerator SpawnChunks()
     {
         //Instantiate(masterRoom, gameObject.transform);
         while (roomCount > 0)
         {
             int selectedRoom = Random.Range(0, roomTypes.Count);
             SelectExit();
-            /*
-            if (roomCount % 4 == 0) // Every 4 rooms spawn a hallway
-            {
-                Instantiate(roomTypes[SelectRandomHallway()], selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
-            }
-            else
-            {
-                Instantiate(roomTypes[selectedRoom], selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
-            }
-            */
-            Instantiate(roomTypes[selectedRoom], selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
+            GameObject newChunk = Instantiate(roomTypes[selectedRoom], selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
+            chunkList.Add(newChunk);
             openExits.Remove(selectedExitPoint);
             roomCount--;
             yield return new WaitForSeconds(roomGenTime);
         }
-        StartCoroutine(SpawnEndRooms());
+        StartCoroutine(SpawnEndChunks());
         roomGenComplete = true;
     }
 
-    IEnumerator SpawnEndRooms()
+    IEnumerator SpawnEndChunks()
     {
         while (openExits.Count > 0)
         {
             SelectExit();
-            Instantiate(endRoom, selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
+            GameObject newChunk = Instantiate(endRoom, selectedExitPoint.transform.position, selectedExitPoint.transform.rotation, gameObject.transform);
+            chunkList.Add(newChunk);
             openExits.Remove(selectedExitPoint);
             yield return new WaitForSeconds(roomGenTime);
         }
@@ -77,10 +70,5 @@ public class DungeonGenerator : MonoBehaviour
     {
         int selectedExit = Random.Range(0, openExits.Count);
         selectedExitPoint = openExits[selectedExit];
-    }
-
-    int SelectRandomHallway()
-    {
-        return Random.Range(3, 7);
     }
 }

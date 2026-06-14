@@ -1600,6 +1600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1787807783}
   - component: {fileID: 1787807782}
+  - component: {fileID: 1787807784}
   m_Layer: 0
   m_Name: Dungeon Generator
   m_TagString: Untagged
@@ -1621,22 +1622,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomTypes:
   - {fileID: 6660220586767156098, guid: bd08e41dabbb14b49b4a0d647745f22d, type: 3}
+  chunkList: []
   endRoom: {fileID: 4868966045942292749, guid: dbcafdc62c27b9a4dbb4f12878ace344, type: 3}
   masterRoom: {fileID: 5586268768055500127, guid: 109dc9a00ec33fd478848bc724c21907,
     type: 3}
   exitWall: {fileID: 0}
-  doorObject: {fileID: 0}
+  treeObject: {fileID: 7645607808550603298, guid: f67c561c23b630241b3482a111fa9210,
+    type: 3}
   cameraObj: {fileID: 0}
   player: {fileID: 1427743319}
   openExits: []
   endDoors: []
   selectedExitPoint: {fileID: 0}
-  roomCount: 10
+  roomCount: 20
   roomGenComplete: 0
   roomGenTime: 0.2
   allRoomsSpawned:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1787807784}
+        m_TargetAssemblyTypeName: ResourceSpawner, Assembly-CSharp
+        m_MethodName: SpawnObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1787807783
 Transform:
   m_ObjectHideFlags: 0
@@ -1652,6 +1667,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1787807784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787807781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3403bc23c7dac174d8abebefa17e5d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceSpawner
+  dungeonGen: {fileID: 1787807782}
 --- !u!1 &1901523345
 GameObject:
   m_ObjectHideFlags: 0

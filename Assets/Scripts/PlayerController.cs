@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirectionSmoothedVelocity;
     [SerializeField] private float smoothDampTime;
     [SerializeField] private bool isMoving;
-    [SerializeField] private float maxVelocity;
     [SerializeField] private bool isJumpHeld;
     [SerializeField] private bool isGrounded;
     private bool gravityIncrease;
@@ -238,16 +237,6 @@ public class PlayerController : MonoBehaviour
             // The Raycast did not hit anything.
             return (success: false, position: Vector3.zero);
         }
-    }
-
-    private IEnumerator MovementCooldown(float time)
-    {
-        //weaponFired = true;
-        maxVelocity = 18;
-        playerRb.linearVelocity = Vector3.zero;
-        playerRb.AddForce(-transform.forward * 300, ForceMode.Impulse);
-        yield return new WaitForSeconds(movementCooldownTime);
-        //weaponFired = false;
     }
 
     private IEnumerator IncreaseGravity()
