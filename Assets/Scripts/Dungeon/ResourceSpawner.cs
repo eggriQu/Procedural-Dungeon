@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ResourceSpawner : MonoBehaviour
 {
-    [SerializeField] private DungeonGenerator dungeonGen;
+    [SerializeField] private WorldGenerator worldGen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,10 +18,10 @@ public class ResourceSpawner : MonoBehaviour
 
     public void SpawnObjects()
     {
-        for (int i = 0; i < dungeonGen.chunkList.Count; i++)
+        for (int i = 0; i < worldGen.chunkList.Count; i++)
         {
-            GameObject chunkObj = dungeonGen.chunkList[i];
-            Chunk currentChunk = chunkObj.GetComponent<DungeonRoom>().chunk;
+            GameObject chunkObj = worldGen.chunkList[i];
+            Chunk currentChunk = chunkObj.GetComponent<WorldChunk>().chunk;
             for (int j = 0; j < 4; j++)
             {
                 float xRange = Random.Range(-currentChunk.spawnRange.x, currentChunk.spawnRange.x);

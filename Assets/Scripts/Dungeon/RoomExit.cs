@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class RoomExit : MonoBehaviour
 {
-    [SerializeField] private DungeonRoom dungeonRoom;
-    [SerializeField] private DungeonGenerator dungeonGen;
+    [SerializeField] private WorldChunk worldChunk;
+    [SerializeField] private WorldGenerator worldGen;
 
     void Awake()
     {
-        dungeonRoom = GetComponentInParent<DungeonRoom>();
-        dungeonGen = GameObject.Find("Dungeon Generator").GetComponent<DungeonGenerator>();
+        worldChunk = GetComponentInParent<WorldChunk>();
+        worldGen = GameObject.Find("World Generator").GetComponent<WorldGenerator>();
     }
 
     // Update is called once per frame
@@ -21,8 +21,8 @@ public class RoomExit : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Room"))
         {
-            dungeonRoom.roomExits.Remove(gameObject);
-            dungeonGen.openExits.Remove(gameObject);
+            worldChunk.roomExits.Remove(gameObject);
+            worldGen.openExits.Remove(gameObject);
             Destroy(gameObject);
         }
     }

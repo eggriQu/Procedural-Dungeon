@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DungeonGenerator : MonoBehaviour
+public class WorldGenerator : MonoBehaviour
 {
     [Header("Room Objects")]
     [SerializeField] private List<GameObject> roomTypes;
@@ -26,7 +26,7 @@ public class DungeonGenerator : MonoBehaviour
 
     void Start()
     {
-        player.currentRoom = Instantiate(masterRoom, gameObject.transform).GetComponent<DungeonRoom>();
+        Instantiate(masterRoom, gameObject.transform).GetComponent<WorldChunk>();
         StartCoroutine(SpawnChunks());
     }
 

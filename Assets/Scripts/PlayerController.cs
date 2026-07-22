@@ -10,35 +10,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Rigidbody playerRb;
     Vector2 moveDirection = Vector2.zero;
-    Vector2 smoothedDirection;
-    Vector2 moveDirectionSmoothedVelocity;
-    [SerializeField] private float smoothDampTime;
     [SerializeField] private bool isMoving;
-    [SerializeField] private bool isJumpHeld;
     [SerializeField] private bool isGrounded;
-    private bool gravityIncrease;
 
     [Header("Input Variables")]
     private InputAction move;
-    private InputAction fire;
     private InputAction jump;
 
     [Header("Other Variables")]
     private Camera mainCamera;
     [SerializeField] private LayerMask groundMask;
-    public DungeonRoom currentRoom;
     public Vector3 respawnPoint;
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private Animator animator;
-
-    [Header("Weapon Variables")]
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private bool weaponFired;
-    [SerializeField] private float movementCooldownTime;
-    public int shotsLeft;
-    [SerializeField] private float reloadTime;
-    public bool isReloading;
 
     [Header("Player Stats")]
     public int health;
@@ -48,7 +31,6 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         move = InputSystem.actions.FindAction("Move");
-        fire = InputSystem.actions.FindAction("Fire");
         jump = InputSystem.actions.FindAction("Jump");
     }
 
@@ -62,73 +44,11 @@ public class PlayerController : MonoBehaviour
         move.Enable();
         move.performed += Move;
         move.canceled += StopMoving;
-
-        fire.Enable();
-        fire.performed += Fire;
-
-        jump.Enable();
-        jump.performed += ReadyJump;
-        jump.canceled += ReleaseJump;
     }
 
     private void OnDisable()
     {
         move.Disable();
-        fire.Disable();
-    }
-
-    private void ReadyJump(InputAction.CallbackContext context)
-    {
-        /*
-        if (shotsLeft > 0 && !isReloading)
-        {
-            isJumpHeld = true;
-        }
-        */
-    }
-
-    private void ReleaseJump(InputAction.CallbackContext context)
-    {
-        /*
-        if (shotsLeft > 0 && !isReloading)
-        {
-            isJumpHeld = false;
-            playerRb.linearVelocity = Vector3.zero;
-            playerRb.AddForce(Vector3.up * 180, ForceMode.Impulse);
-            StartCoroutine(IncreaseGravity());
-            Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
-            bulletRb.AddForce(firePoint.forward * 10, ForceMode.Impulse);
-            shotsLeft--;
-        }
-        */
-    }
-
-    private void Fire(InputAction.CallbackContext context)
-    {
-        /*
-        if (shotsLeft > 0 && !isReloading && !isJumpHeld)
-        {
-            StopCoroutine("MovementCooldown");
-            Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
-            bulletRb.AddForce(firePoint.forward * 15, ForceMode.Impulse);
-            StartCoroutine(MovementCooldown(movementCooldownTime));
-            shotsLeft--;
-        }
-        else if (shotsLeft <= 0 && !isReloading && !isJumpHeld)
-        {
-            StartCoroutine(Reload(reloadTime));
-        }
-        */
-        if (shotsLeft > 0 && !isReloading)
-        {
-            Rigidbody bulletRb = Instantiate(bullet, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
-            bulletRb.AddForce(firePoint.forward * 15, ForceMode.Impulse);
-            shotsLeft--;
-        }
-        else if (shotsLeft <= 0 && !isReloading)
-        {
-            StartCoroutine(Reload(reloadTime));
-        }
     }
 
     private void Move(InputAction.CallbackContext context)
@@ -144,35 +64,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*
-        if (maxVelocity > 14)
-        {
-            maxVelocity -= 0.07333333333f; // I actually forgot what this value was :(
-            weaponFired = true;
-        }
-        else
-        {
-            maxVelocity = 14;
-            weaponFired = false;
-        }
-        playerRb.maxLinearVelocity = maxVelocity;
-        */
-
         moveDirection = move.ReadValue<Vector2>();
-
-        smoothedDirection = Vector2.SmoothDamp(
-            smoothedDirection,
-            moveDirection,
-            ref moveDirectionSmoothedVelocity,
-            smoothDampTime);
 
         Vector3 transformForward = movementTransform.forward;
         Vector3 transformRight = movementTransform.right;
         transformForward.y = 0;
         transformRight.y = 0;
 
-        Vector3 forwardRelative = smoothedDirection.y * transformForward;
-        Vector3 rightRelative = smoothedDirection.x * transformRight;
+        Vector3 forwardRelative = moveDirection.y * transformForward;
+        Vector3 rightRelative = moveDirection.x * transformRight;
 
         Vector3 moveDir = forwardRelative + rightRelative;
         Vector3 movementVector = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
@@ -185,20 +85,14 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.linearVelocity = new Vector3(0, playerRb.linearVelocity.y, 0);
         }
-
-        Aim();
     }
 
     private void Update()
     {
-        Aim();
-
-        if (!isGrounded && gravityIncrease)
-        {
-            playerRb.AddForce(Vector3.down * 2.5f, ForceMode.Acceleration);
-        }
+        
     }
 
+    /*
     private void Aim()
     {
         var (success, position) = GetMousePosition();
@@ -222,6 +116,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    */
 
     private (bool success, Vector3 position) GetMousePosition()
     {
@@ -239,26 +134,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator IncreaseGravity()
-    {
-        yield return new WaitForSeconds(1);
-        gravityIncrease = true;
-    }
-
-    private IEnumerator Reload(float time)
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(time);
-        shotsLeft = 2;
-        isReloading = false;
-    }
-
     IEnumerator TakeDamage()
     {
         health -= 1;
         if (health == 0)
         {
-            gameManager.GameOver();
+            GameManager.instance.GameOver();
             StopCoroutine(TakeDamage());
         }
         invincible = true;
@@ -268,7 +149,6 @@ public class PlayerController : MonoBehaviour
 
     private void TakeHazardDamage()
     {
-        transform.position = currentRoom.respawnPoint.transform.position;
         StartCoroutine(TakeDamage());
     }
 
@@ -287,7 +167,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             isGrounded = true;
-            gravityIncrease = false;
         }
     }
 
@@ -306,10 +185,5 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(TakeDamage());
             Destroy(collision.gameObject);
         }
-    }
-
-    public void ChangeCurrentRoom(DungeonRoom dungeonRoom)
-    {
-        currentRoom = dungeonRoom;
     }
 }

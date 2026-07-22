@@ -1634,7 +1634,7 @@ MonoBehaviour:
   openExits: []
   endDoors: []
   selectedExitPoint: {fileID: 0}
-  roomCount: 20
+  roomCount: 30
   roomGenComplete: 0
   roomGenTime: 0.2
   allRoomsSpawned:
