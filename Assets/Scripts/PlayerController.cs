@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public int health;
     public bool invincible;
 
+    public int tool;
+
     void Awake()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private void StopMoving(InputAction.CallbackContext context)
     {
         isMoving = false;
+        playerRb.linearVelocity = new Vector3(0, playerRb.linearVelocity.y, 0);
     }
 
     // Update is called once per frame
@@ -81,10 +84,6 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.linearVelocity = new Vector3(moveDir.x * moveSpeed, playerRb.linearVelocity.y, moveDir.z * moveSpeed);
         }
-        else if (!isMoving)
-        {
-            playerRb.linearVelocity = new Vector3(0, playerRb.linearVelocity.y, 0);
-        }
     }
 
     private void Update()
@@ -92,7 +91,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    /*
     private void Aim()
     {
         var (success, position) = GetMousePosition();
@@ -106,17 +104,8 @@ public class PlayerController : MonoBehaviour
             direction.y = 0;
 
             // Make the transform look in the direction.
-            if (!isJumpHeld)
-            {
-                transform.forward = direction;
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(90, transform.rotation.y, transform.rotation.z);
-            }
         }
     }
-    */
 
     private (bool success, Vector3 position) GetMousePosition()
     {
@@ -125,11 +114,13 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, groundMask))
         {
             // The Raycast hit something, return with the position.
+            Debug.Log(true);
             return (success: true, position: hitInfo.point);
         }
         else
         {
             // The Raycast did not hit anything.
+            Debug.Log(false);
             return (success: false, position: Vector3.zero);
         }
     }
