@@ -66,7 +66,6 @@ public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         if (inRange)
         {
             OnClick(player);
-            inventory.PickupItem(this);
         }
     }
 
@@ -82,7 +81,7 @@ public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public virtual void OnClick(PlayerController player)
     {
-
+        inventory.PickupItem(this);
     }
 
     public virtual void OnHover(PlayerController player)

@@ -16,7 +16,6 @@ public class Stone : BaseItem
 
     public override void OnClick(PlayerController player)
     {
-        base.OnClick(player);
         if (player.tool == 1)
         {
             resourceHp -= 5;
@@ -24,6 +23,7 @@ public class Stone : BaseItem
 
         if (resourceHp < 1)
         {
+            inventory.PickupItem(this);
             Destroy(gameObject);
         }
     }
