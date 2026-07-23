@@ -67,8 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b142a2f8b605d2443b5c369ed49af74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stone
-  resource: {fileID: 0}
+  autoStart: 0
+  enabledPickupDelay: 3
   resourceHp: 20
+  item: {fileID: 11400000, guid: 34864335dd3317d49ad2839b084c5be6, type: 2}
+  pickedUp: 0
 --- !u!1001 &2432819822686340102
 PrefabInstance:
   m_ObjectHideFlags: 0

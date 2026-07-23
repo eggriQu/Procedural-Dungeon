@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd3e0cfcbc792e4e9b9d46d95a542c8, type: 3}
+  m_Name: Grass
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  id: grass
+  description: A thick and fibrous grass.
+  icon: {fileID: 21300000, guid: 3b18fd07ef8390549a9d285cee7aa406, type: 3}
+  prefab: {fileID: 8767487138531539870, guid: ed60032bf32de7542ae90834cb215979, type: 3}

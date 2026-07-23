@@ -3,6 +3,7 @@ using UnityEngine;
 public class ResourceSpawner : MonoBehaviour
 {
     [SerializeField] private WorldGenerator worldGen;
+    [SerializeField] private Transform parent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +31,7 @@ public class ResourceSpawner : MonoBehaviour
                 Vector3 spawnPos = chunkPos + new Vector3(xRange, 0, zRange);
 
                 GameObject resource = currentChunk.resources[Random.Range(currentChunk.elementFirst, currentChunk.elementLast)];
-                Instantiate(resource, spawnPos, new Quaternion());
+                Instantiate(resource, spawnPos, new Quaternion(), parent);
             }
         }
     }

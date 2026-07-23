@@ -67,8 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9b5248872abec48b4f8f18995f05c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grass
-  resource: {fileID: 0}
+  autoStart: 0
+  enabledPickupDelay: 3
   resourceHp: 0
+  item: {fileID: 11400000, guid: 3a4419718ba13b54a86bf847883f88f7, type: 2}
+  pickedUp: 0
 --- !u!1001 &3438627802549239185
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public interface ILevelObject
 {
@@ -8,23 +9,48 @@ public interface ILevelObject
     void OnExit(PlayerController player);
 }
 
+[RequireComponent(typeof(Collider))]
 public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, ILevelObject
 {
-    protected PlayerController player;
-    [SerializeField] protected Resource resource;
+    [Header("Settings")]
+    [SerializeField] bool autoStart;
+    [SerializeField] float enabledPickupDelay = 3.0f;
+
+    [Header("State")]
     [SerializeField] protected float resourceHp;
+    public Item item;
+    public bool pickedUp;
+    private bool inRange;
+
+    protected PlayerController player;
+    protected Inventory inventory;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        inventory = player.GetComponent<Inventory>();
+
+        if (autoStart && item == null)
+        {
+            Initialize(item);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Initialize(Item item)
     {
-        
+        this.item = item;
+        var droppedItem = Instantiate(item.prefab, transform);
+        droppedItem.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        StartCoroutine(EnablePickup(enabledPickupDelay));
     }
+
+    IEnumerator EnablePickup(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GetComponent<Collider>().enabled = true;
+    }
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -37,7 +63,11 @@ public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnClick(player);
+        if (inRange)
+        {
+            OnClick(player);
+            inventory.PickupItem(this);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -63,5 +93,21 @@ public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public virtual void OnExit(PlayerController player)
     {
 
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            inRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            inRange = false;
+        }
     }
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd3e0cfcbc792e4e9b9d46d95a542c8, type: 3}
+  m_Name: Stone
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  id: stone
+  description: Stone. A common material.
+  icon: {fileID: 21300000, guid: 959d0846ed2f35d458b1d553e1e004e2, type: 3}
+  prefab: {fileID: 3876795179198584464, guid: e14ff232b45701c48b37bb6e234502be, type: 3}

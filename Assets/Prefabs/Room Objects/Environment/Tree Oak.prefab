@@ -67,8 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4e5180ddab2ef45b433644055b0a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wood
-  resource: {fileID: 0}
+  autoStart: 0
+  enabledPickupDelay: 3
   resourceHp: 15
+  item: {fileID: 11400000, guid: 953a83b8fa13a7e40ba49b4609f1d81a, type: 2}
+  pickedUp: 0
 --- !u!1001 &5467940780205800423
 PrefabInstance:
   m_ObjectHideFlags: 0

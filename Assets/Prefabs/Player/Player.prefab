@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 3728298812573344602}
   - component: {fileID: 1674909680059608792}
   - component: {fileID: 6495771109473709830}
+  - component: {fileID: 2693857822273987783}
   - component: {fileID: 5648738121973683197}
   m_Layer: 0
   m_Name: Player
@@ -199,6 +200,28 @@ MonoBehaviour:
   animator: {fileID: 5648738121973683197}
   health: 5
   invincible: 0
+  tool: 0
+--- !u!114 &2693857822273987783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678487214340266820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d778ab096af584dac06fda511c7189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  ui: {fileID: 0}
+  audioSource: {fileID: 0}
+  droppedItemPrefab: {fileID: 4391618406017265749, guid: f9264e49062148441a968a0ac1af0cb2,
+    type: 3}
+  pickUpItemAudio: {fileID: 0}
+  dropItemAudio: {fileID: 0}
+  inventory:
+    m_Keys: []
+    m_Values: []
 --- !u!95 &5648738121973683197
 Animator:
   serializedVersion: 7
