@@ -17,6 +17,9 @@ public class Grass : BaseItem
     public override void OnClick(PlayerController player)
     {
         base.OnClick(player);
-        Destroy(gameObject);
+        if (inventory.inventoryCount < inventory.maxInventorySlots)
+        {
+            Destroy(gameObject);
+        }
     }
 }

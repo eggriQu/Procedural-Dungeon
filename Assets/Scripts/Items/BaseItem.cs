@@ -12,14 +12,9 @@ public interface ILevelObject
 [RequireComponent(typeof(Collider))]
 public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, ILevelObject
 {
-    [Header("Settings")]
-    [SerializeField] bool autoStart;
-    [SerializeField] float enabledPickupDelay = 3.0f;
-
     [Header("State")]
     [SerializeField] protected float resourceHp;
     public Item item;
-    public bool pickedUp;
     private bool inRange;
 
     protected PlayerController player;
@@ -30,25 +25,13 @@ public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         inventory = player.GetComponent<Inventory>();
-
-        if (autoStart && item == null)
-        {
-            Initialize(item);
-        }
     }
 
     public void Initialize(Item item)
     {
         this.item = item;
-        var droppedItem = Instantiate(item.prefab, transform);
-        droppedItem.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-        StartCoroutine(EnablePickup(enabledPickupDelay));
-    }
-
-    IEnumerator EnablePickup(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        GetComponent<Collider>().enabled = true;
+        Instantiate(item.prefab, transform.position, Quaternion.identity, GameManager.instance.levelItems.transform);
+        Destroy(gameObject);
     }
 
 

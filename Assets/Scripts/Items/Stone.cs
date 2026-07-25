@@ -23,8 +23,11 @@ public class Stone : BaseItem
 
         if (resourceHp < 1)
         {
-            inventory.PickupItem(this);
-            Destroy(gameObject);
+            if (inventory.inventoryCount < inventory.maxInventorySlots)
+            {
+                inventory.PickupItem(this);
+                Destroy(gameObject);
+            }
         }
     }
 }

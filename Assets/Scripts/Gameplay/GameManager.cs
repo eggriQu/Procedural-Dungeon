@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerController player;
     [SerializeField] private GameObject gameOverScreen;
+    public GameObject levelItems;
 
     public void GameOver()
     {

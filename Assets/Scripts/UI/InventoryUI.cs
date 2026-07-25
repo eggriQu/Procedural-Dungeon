@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -12,20 +13,35 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] Transform uiInventoryParent;
 
     [Header("State")]
-    [SerializeField] SerializedDictionary<string, GameObject> inventoryUI = new();
+    [SerializeField] SerializedDictionary<Item, int> inventoryUI = new();
 
     public void AddUIItem(string inventoryId, Item item)
     {
-        var itemUI = Instantiate(uiItemPrefab).GetComponent<ItemUI>();
-        itemUI.transform.SetParent(uiInventoryParent);
-        inventoryUI.Add(inventoryId, itemUI.gameObject);
-        itemUI.Initialize(inventoryId, item, inventory.DropItem);
+        if (inventoryUI.ContainsKey(item))
+        {
+            inventoryUI[item] += 1;
+        }
+        else
+        {
+            var itemUI = Instantiate(uiItemPrefab).GetComponent<ItemUI>();
+            itemUI.transform.SetParent(uiInventoryParent);
+            inventoryUI.Add(item, 1);
+            itemUI.Initialize(inventoryId, item, inventory.DropItem);
+        }
     }
 
-    public void RemoveUIItem(string inventoryId)
+    public void DropUIItem(Item item)
     {
-        var itemUI = inventoryUI.GetValueOrDefault(inventoryId);
-        inventoryUI.Remove(inventoryId);
-        Destroy(itemUI);
+        inventoryUI[item] -= 1;
+    }
+
+    public void RemoveUIItem(Item item)
+    {
+        inventoryUI.Remove(item);
+    }
+
+    public bool CheckForKey(Item item)
+    {
+        return inventoryUI.ContainsKey(item);
     }
 }

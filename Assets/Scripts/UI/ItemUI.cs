@@ -8,12 +8,29 @@ public class ItemUI : MonoBehaviour
     [Header("References")]
     [SerializeField] Image image;
     [SerializeField] Button button;
+    [SerializeField] Item itemObj;
+    [SerializeField] InventoryUI inventoryUI;
 
-    public void Initialize(string inventoryId, Item item, Action<String> removeItemAction)
+    public void Initialize(string inventoryId, Item item, Action<String, Item> removeItemAction)
     {
         image.sprite = item.icon;
+        itemObj = item;
+        inventoryUI = GameObject.Find("Inventory UI").GetComponent<InventoryUI>();
         transform.localScale = Vector3.one;
-        button.onClick.AddListener(() => removeItemAction.Invoke(inventoryId));
+        button.onClick.AddListener(() => removeItemAction.Invoke(inventoryId, item));
+        button.onClick.AddListener(CheckQuantity);
+    }
+
+    void CheckQuantity()
+    {
+        if (inventoryUI.CheckForKey(itemObj))
+        {
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Destroy()

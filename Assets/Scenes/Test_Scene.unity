@@ -430,10 +430,9 @@ GameObject:
   - component: {fileID: 751161434}
   - component: {fileID: 751161438}
   - component: {fileID: 751161437}
-  - component: {fileID: 751161436}
   - component: {fileID: 751161435}
   m_Layer: 5
-  m_Name: Inventory Scroll View
+  m_Name: Inventory UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,37 +476,7 @@ MonoBehaviour:
   uiInventoryParent: {fileID: 1990882118}
   inventoryUI:
     m_Keys: []
-    m_Values: []
---- !u!114 &751161436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751161433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
-  m_Content: {fileID: 1990882118}
-  m_Horizontal: 1
-  m_Vertical: 0
-  m_MovementType: 1
-  m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 79727016}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
-  m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 0
-  m_HorizontalScrollbarSpacing: 0
-  m_VerticalScrollbarSpacing: 0
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
+    m_Values: 
 --- !u!114 &751161437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,6 +884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   player: {fileID: 1427743319}
   gameOverScreen: {fileID: 1975702060}
+  levelItems: {fileID: 1676522325}
 --- !u!4 &1248912931
 Transform:
   m_ObjectHideFlags: 0
@@ -1284,7 +1254,7 @@ MonoBehaviour:
   openExits: []
   endDoors: []
   selectedExitPoint: {fileID: 0}
-  roomCount: 10
+  roomCount: 5
   roomGenComplete: 0
   roomGenTime: 0.2
   allRoomsSpawned:

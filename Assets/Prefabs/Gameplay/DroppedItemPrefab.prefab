@@ -66,8 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ac2f72327df1c41b0ff03bb17aff54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseItem
-  autoStart: 1
-  enabledPickupDelay: 3
+  autoStart: 0
   resourceHp: 0
   item: {fileID: 0}
   pickedUp: 0

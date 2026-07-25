@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.Rendering;
+using System.Linq;
 
 [RequireComponent(typeof(Collider))]
 public class Inventory : MonoBehaviour
@@ -18,7 +19,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] AudioClip dropItemAudio;
 
     [Header("State")]
-    [SerializeField] SerializedDictionary<string, Item> inventory = new();
+    public int maxInventorySlots;
+    public int inventoryCount;
+    [SerializeField] SerializedDictionary<string, int> inventory = new();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,31 +37,52 @@ public class Inventory : MonoBehaviour
 
     public void PickupItem(BaseItem droppedItem)
     {
-        var item = droppedItem;
-        if (droppedItem.pickedUp)
+        if (inventoryCount <  maxInventorySlots)
         {
-            return;
+
+            var item = droppedItem;
+            AddItem(droppedItem.item);
+            //audioSource.PlayOneShot(pickUpItemAudio);
         }
-        droppedItem.pickedUp = true;
-        AddItem(droppedItem.item);
-        //audioSource.PlayOneShot(pickUpItemAudio);
-        Debug.Log("Hell yeah");
+        else
+        {
+            Debug.Log("You're carrying too many items!");
+        }
     }
 
     void AddItem(Item item)
     {
-        var inventoryId = Guid.NewGuid().ToString();
-        inventory.Add(inventoryId, item);
-        ui.AddUIItem(inventoryId, item);
+        var inventoryId = item.id;
+        if (inventory.ContainsKey(inventoryId))
+        {
+            inventory[inventoryId] += 1;
+            ui.AddUIItem(inventoryId, item);
+        }
+        else
+        {
+            inventory.Add(inventoryId, 1);
+            ui.AddUIItem(inventoryId, item);
+            inventoryCount = inventory.Count;
+        }
     }
 
-    public void DropItem(string inventoryId)
+    public void DropItem(string inventoryId, Item item)
     {
-        var droppedItem = Instantiate(droppedItemPrefab, transform.position, Quaternion.identity).GetComponent<BaseItem>();
-        var item = inventory.GetValueOrDefault(inventoryId);
-        droppedItem.Initialize(item);
-        inventory.Remove(inventoryId);
-        ui.RemoveUIItem(inventoryId);
-        //audioSource.PlayOneShot(dropItemAudio);
+        if (inventory.ContainsKey(inventoryId) && inventory[inventoryId] > 1)
+        {
+            var droppedItem = Instantiate(droppedItemPrefab, transform.position, Quaternion.identity).GetComponent<BaseItem>();
+            droppedItem.Initialize(item);
+            inventory[inventoryId] -= 1;
+            ui.DropUIItem(item);
+        }
+        else if (inventory.ContainsKey(inventoryId) && inventory[inventoryId] <= 1)
+        {
+            var droppedItem = Instantiate(droppedItemPrefab, transform.position, Quaternion.identity).GetComponent<BaseItem>();
+            droppedItem.Initialize(item);
+            inventory.Remove(inventoryId);
+            ui.RemoveUIItem(item);
+            inventoryCount = inventory.Count;
+            //audioSource.PlayOneShot(dropItemAudio);
+        }
     }
 }

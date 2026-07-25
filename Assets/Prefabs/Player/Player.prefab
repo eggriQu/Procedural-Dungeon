@@ -219,6 +219,8 @@ MonoBehaviour:
     type: 3}
   pickUpItemAudio: {fileID: 0}
   dropItemAudio: {fileID: 0}
+  maxInventorySlots: 5
+  inventoryCount: 0
   inventory:
     m_Keys: []
     m_Values: []
