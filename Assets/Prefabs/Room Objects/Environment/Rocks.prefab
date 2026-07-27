@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434360948054869895}
   - component: {fileID: 7160135708377512384}
-  - component: {fileID: 8500018691341825666}
+  - component: {fileID: 4674710492033574027}
   m_Layer: 6
   m_Name: Rocks
   m_TagString: Untagged
@@ -55,7 +55,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.8, y: 1, z: 2.8}
   m_Center: {x: -0.2, y: 0.7, z: 0}
---- !u!114 &8500018691341825666
+--- !u!114 &4674710492033574027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,14 +64,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3876795179198584464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b142a2f8b605d2443b5c369ed49af74a, type: 3}
+  m_Script: {fileID: 11500000, guid: 492bccd9d3f4a3945b300c6158a03b56, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Stone
-  autoStart: 0
-  enabledPickupDelay: 3
-  resourceHp: 20
+  m_EditorClassIdentifier: Assembly-CSharp::BaseObject
   item: {fileID: 11400000, guid: 34864335dd3317d49ad2839b084c5be6, type: 2}
-  pickedUp: 0
+  objectHp: 0
+  requiredTool: 0
 --- !u!1001 &2432819822686340102
 PrefabInstance:
   m_ObjectHideFlags: 0

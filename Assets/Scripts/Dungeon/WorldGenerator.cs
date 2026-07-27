@@ -10,14 +10,10 @@ public class WorldGenerator : MonoBehaviour
     public List<GameObject> chunkList;
     public GameObject endRoom;
     public GameObject masterRoom;
-    public GameObject exitWall;
-    public GameObject treeObject;
-    public GameObject cameraObj;
     public PlayerController player;
 
     [Header("Room Gen Variables")]
     public List<GameObject> openExits;
-    public List<GameObject> endDoors;
     public GameObject selectedExitPoint;
     public int roomCount;
     public bool roomGenComplete;
@@ -38,7 +34,6 @@ public class WorldGenerator : MonoBehaviour
 
     IEnumerator SpawnChunks()
     {
-        //Instantiate(masterRoom, gameObject.transform);
         while (roomCount > 0)
         {
             int selectedRoom = Random.Range(0, roomTypes.Count);

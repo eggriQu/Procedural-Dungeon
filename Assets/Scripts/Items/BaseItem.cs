@@ -13,7 +13,6 @@ public interface ILevelObject
 public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, ILevelObject
 {
     [Header("State")]
-    [SerializeField] protected float resourceHp;
     public Item item;
     private bool inRange;
 

@@ -477,6 +477,9 @@ MonoBehaviour:
   inventoryUI:
     m_Keys: []
     m_Values: 
+  itemQuantites:
+    m_Keys: []
+    m_Values: []
 --- !u!114 &751161437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,6 +916,11 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 751161435}
+    - target: {fileID: 2693857822273987783, guid: 74d11a7885b318c49ba20435ad6c1084,
+        type: 3}
+      propertyPath: maxInventorySlots
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3339950793015885704, guid: 74d11a7885b318c49ba20435ad6c1084,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -963,6 +971,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3728298812573344602, guid: 74d11a7885b318c49ba20435ad6c1084,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6495771109473709830, guid: 74d11a7885b318c49ba20435ad6c1084,
         type: 3}
       propertyPath: movementTransform
@@ -972,6 +985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863038746583030092, guid: 74d11a7885b318c49ba20435ad6c1084,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1246,13 +1264,8 @@ MonoBehaviour:
   endRoom: {fileID: 4868966045942292749, guid: dbcafdc62c27b9a4dbb4f12878ace344, type: 3}
   masterRoom: {fileID: 5586268768055500127, guid: 109dc9a00ec33fd478848bc724c21907,
     type: 3}
-  exitWall: {fileID: 0}
-  treeObject: {fileID: 7645607808550603298, guid: f67c561c23b630241b3482a111fa9210,
-    type: 3}
-  cameraObj: {fileID: 0}
   player: {fileID: 1427743319}
   openExits: []
-  endDoors: []
   selectedExitPoint: {fileID: 0}
   roomCount: 5
   roomGenComplete: 0

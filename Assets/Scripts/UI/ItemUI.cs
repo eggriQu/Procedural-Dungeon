@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 [RequireComponent(typeof(Button))]
 public class ItemUI : MonoBehaviour
@@ -10,6 +11,7 @@ public class ItemUI : MonoBehaviour
     [SerializeField] Button button;
     [SerializeField] Item itemObj;
     [SerializeField] InventoryUI inventoryUI;
+    public TextMeshProUGUI quantityText;
 
     public void Initialize(string inventoryId, Item item, Action<String, Item> removeItemAction)
     {

@@ -16,18 +16,10 @@ public class Wood : BaseItem
 
     public override void OnClick(PlayerController player)
     {
-        if (player.tool == 2)
+        inventory.PickupItem(this);
+        if (inventory.CheckForKey(item.id))
         {
-            resourceHp -= 5;
-        }
-
-        if (resourceHp < 1)
-        {
-            if (inventory.inventoryCount < inventory.maxInventorySlots)
-            {
-                inventory.PickupItem(this);
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

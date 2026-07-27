@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2554439415846393882}
   - component: {fileID: -3562555767538176773}
-  - component: {fileID: 1920880950074860637}
+  - component: {fileID: -677927509013636438}
   m_Layer: 6
   m_Name: Tree Pine
   m_TagString: Untagged
@@ -55,7 +55,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 8, z: 4}
   m_Center: {x: 0, y: 4, z: 0}
---- !u!114 &1920880950074860637
+--- !u!114 &-677927509013636438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,14 +64,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1191777495129811684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4e5180ddab2ef45b433644055b0a20, type: 3}
+  m_Script: {fileID: 11500000, guid: 492bccd9d3f4a3945b300c6158a03b56, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wood
-  autoStart: 0
-  enabledPickupDelay: 3
-  resourceHp: 15
+  m_EditorClassIdentifier: Assembly-CSharp::BaseObject
   item: {fileID: 11400000, guid: 953a83b8fa13a7e40ba49b4609f1d81a, type: 2}
-  pickedUp: 0
+  objectHp: 0
+  requiredTool: 0
 --- !u!1001 &3917931697186722825
 PrefabInstance:
   m_ObjectHideFlags: 0

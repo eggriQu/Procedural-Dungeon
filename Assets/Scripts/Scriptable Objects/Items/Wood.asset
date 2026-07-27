@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   id: wood
   description: Wood. It grows on trees.
+  health: 15
+  tool: 2
   icon: {fileID: 21300000, guid: 6bb8c6696aebe2248ac193b3f630b5dd, type: 3}
-  prefab: {fileID: 1191777495129811684, guid: 826624c83a463ea48ae882ef135f118e, type: 3}
+  prefab: {fileID: 3998763096953753491, guid: 389008d25877d0d4eaff137d1fac5f99, type: 3}

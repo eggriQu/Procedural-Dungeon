@@ -37,9 +37,8 @@ public class Inventory : MonoBehaviour
 
     public void PickupItem(BaseItem droppedItem)
     {
-        if (inventoryCount <  maxInventorySlots)
+        if (inventoryCount < maxInventorySlots || inventory.ContainsKey(droppedItem.item.id))
         {
-
             var item = droppedItem;
             AddItem(droppedItem.item);
             //audioSource.PlayOneShot(pickUpItemAudio);
@@ -84,5 +83,10 @@ public class Inventory : MonoBehaviour
             inventoryCount = inventory.Count;
             //audioSource.PlayOneShot(dropItemAudio);
         }
+    }
+
+    public bool CheckForKey(string itemId)
+    {
+        return inventory.ContainsKey(itemId);
     }
 }

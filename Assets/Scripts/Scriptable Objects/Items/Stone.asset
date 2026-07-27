@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   id: stone
   description: Stone. A common material.
+  health: 20
+  tool: 1
   icon: {fileID: 21300000, guid: 959d0846ed2f35d458b1d553e1e004e2, type: 3}
-  prefab: {fileID: 3876795179198584464, guid: e14ff232b45701c48b37bb6e234502be, type: 3}
+  prefab: {fileID: 9066162803508094124, guid: 80d9d0494e8b4a5429125668da6b7e62, type: 3}
