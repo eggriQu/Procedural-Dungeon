@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4240328839573934098}
   - component: {fileID: 7337150480509012785}
-  - component: {fileID: 5161103034694633205}
+  - component: {fileID: 6699504900984225897}
   m_Layer: 6
   m_Name: Grass 1
   m_TagString: Untagged
@@ -144,7 +144,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7, y: 1, z: 1.7}
   m_Center: {x: 0, y: 0.4, z: 0}
---- !u!114 &5161103034694633205
+--- !u!114 &6699504900984225897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6533362682699124393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9b5248872abec48b4f8f18995f05c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 48ac2f72327df1c41b0ff03bb17aff54, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Grass
+  m_EditorClassIdentifier: Assembly-CSharp::BaseItem
   item: {fileID: 11400000, guid: 3a4419718ba13b54a86bf847883f88f7, type: 2}

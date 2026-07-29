@@ -3,7 +3,7 @@ using UnityEngine;
 public class BaseObject : BaseItem
 {
     [SerializeField] protected float objectHp;
-    [SerializeField] protected int requiredTool;
+    [SerializeField] protected Item requiredTool;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class BaseObject : BaseItem
 
     public override void OnClick(PlayerController player)
     {
-        if (player.tool == requiredTool)
+        if (player.inventory.currentlyEquipped == requiredTool)
         {
             objectHp -= 5;
         }

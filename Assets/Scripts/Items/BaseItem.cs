@@ -64,6 +64,10 @@ public class BaseItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public virtual void OnClick(PlayerController player)
     {
         inventory.PickupItem(this);
+        if (inventory.CheckForKey(item.id))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public virtual void OnHover(PlayerController player)

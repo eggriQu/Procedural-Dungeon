@@ -6,7 +6,8 @@ public class Item : ScriptableObject
     public string id;
     public string description;
     public int health;
-    public int tool;
+    public Item tool;
+    public bool equippable;
     public Sprite icon;
     public GameObject prefab;
 }

@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     public Vector3 respawnPoint;
     [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    public Inventory inventory;
 
     [Header("Player Stats")]
     public int health;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerRb = GetComponent<Rigidbody>();
+        inventory = GetComponent<Inventory>();
         move = InputSystem.actions.FindAction("Move");
         jump = InputSystem.actions.FindAction("Jump");
     }
@@ -55,12 +58,23 @@ public class PlayerController : MonoBehaviour
 
     private void Move(InputAction.CallbackContext context)
     {
+        if (context.ReadValue<Vector2>().x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (context.ReadValue<Vector2>().x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+
         isMoving = true;
+        animator.Play("Walk");
     }
 
     private void StopMoving(InputAction.CallbackContext context)
     {
         isMoving = false;
+        animator.Play("Idle");
         playerRb.linearVelocity = new Vector3(0, playerRb.linearVelocity.y, 0);
     }
 

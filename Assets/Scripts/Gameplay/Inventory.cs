@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] AudioClip dropItemAudio;
 
     [Header("State")]
+    public Item currentlyEquipped;
     public int maxInventorySlots;
     public int inventoryCount;
     [SerializeField] SerializedDictionary<string, int> inventory = new();
@@ -83,6 +84,12 @@ public class Inventory : MonoBehaviour
             inventoryCount = inventory.Count;
             //audioSource.PlayOneShot(dropItemAudio);
         }
+    }
+
+    public void EquipItem(string inventoryId, Item item)
+    {
+        currentlyEquipped = item;
+        Debug.Log(item.id + " Equipped");
     }
 
     public bool CheckForKey(string itemId)

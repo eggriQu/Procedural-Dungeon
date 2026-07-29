@@ -8,6 +8,7 @@ public class InventoryUI : MonoBehaviour
 {
     [Header("Prefabs")]
     [SerializeField] GameObject uiItemPrefab;
+    [SerializeField] GameObject toolUIPrefab;
 
     [Header("References")]
     [SerializeField] Inventory inventory;
@@ -19,20 +20,32 @@ public class InventoryUI : MonoBehaviour
 
     public void AddUIItem(string inventoryId, Item item)
     {
-        if (inventoryUI.ContainsKey(item))
+        if (!item.equippable)
         {
-            inventoryUI[item] += 1;
-            itemQuantites[item].SetText("x" + inventoryUI[item]);
+            if (inventoryUI.ContainsKey(item))
+            {
+                inventoryUI[item] += 1;
+                itemQuantites[item].SetText("x" + inventoryUI[item]);
+            }
+            else
+            {
+                var itemUI = Instantiate(uiItemPrefab).GetComponent<ItemUI>();
+                itemQuantites.Add(item, itemUI.quantityText);
+
+                itemUI.transform.SetParent(uiInventoryParent);
+                inventoryUI.Add(item, 1);
+                itemQuantites[item].SetText("x" + inventoryUI[item]);
+                itemUI.Initialize(inventoryId, item, inventory.DropItem);
+            }
         }
         else
         {
-            var itemUI = Instantiate(uiItemPrefab).GetComponent<ItemUI>();
+            var itemUI = Instantiate(toolUIPrefab).GetComponent<ToolUI>();
             itemQuantites.Add(item, itemUI.quantityText);
 
             itemUI.transform.SetParent(uiInventoryParent);
             inventoryUI.Add(item, 1);
-            itemQuantites[item].SetText("x" + inventoryUI[item]);
-            itemUI.Initialize(inventoryId, item, inventory.DropItem);
+            itemUI.Initialize(inventoryId, item, inventory.EquipItem);
         }
     }
 
