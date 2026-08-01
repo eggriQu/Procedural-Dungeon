@@ -15,7 +15,8 @@ MonoBehaviour:
   id: rustyAxe
   description: 
   health: 0
-  tool: 0
+  tool: {fileID: 0}
   equippable: 1
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  inGameSprite: {fileID: 21300000, guid: 080e83e67b5e378408461b2a78fdd1a2, type: 3}
   prefab: {fileID: 1370123949543325643, guid: 5daa29b80fc337a489bb2f97d3741e41, type: 3}

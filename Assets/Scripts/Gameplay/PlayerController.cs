@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     public Vector3 respawnPoint;
     [SerializeField] private Animator animator;
+    [SerializeField] private Animator equippedAnim;
     [SerializeField] private SpriteRenderer spriteRenderer;
     public Inventory inventory;
 
@@ -61,20 +62,24 @@ public class PlayerController : MonoBehaviour
         if (context.ReadValue<Vector2>().x > 0)
         {
             spriteRenderer.flipX = false;
+            inventory.equippedItemSprite.flipX = false;
         }
         else if (context.ReadValue<Vector2>().x < 0)
         {
             spriteRenderer.flipX = true;
+            inventory.equippedItemSprite.flipX = true;
         }
 
         isMoving = true;
         animator.Play("Walk");
+        equippedAnim.Play("Tool_Walk");
     }
 
     private void StopMoving(InputAction.CallbackContext context)
     {
         isMoving = false;
         animator.Play("Idle");
+        equippedAnim.Play("Tool_Idle");
         playerRb.linearVelocity = new Vector3(0, playerRb.linearVelocity.y, 0);
     }
 

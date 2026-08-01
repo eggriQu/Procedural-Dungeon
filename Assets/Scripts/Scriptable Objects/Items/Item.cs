@@ -9,5 +9,6 @@ public class Item : ScriptableObject
     public Item tool;
     public bool equippable;
     public Sprite icon;
+    public Sprite inGameSprite;
     public GameObject prefab;
 }

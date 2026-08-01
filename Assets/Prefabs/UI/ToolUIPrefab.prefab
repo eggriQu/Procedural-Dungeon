@@ -296,7 +296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6051938082549074988}
   - component: {fileID: 1130460671160440972}
-  - component: {fileID: 303125481116277186}
   - component: {fileID: 7993873865241596292}
   m_Layer: 5
   m_Name: ToolUIPrefab
@@ -335,7 +334,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8925307827232237042}
   m_CullTransparentMesh: 1
---- !u!114 &303125481116277186
+--- !u!114 &7993873865241596292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,9 +343,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8925307827232237042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bdbf689f99ce1c4dbd140e2d6af1a42, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_EditorClassIdentifier: Assembly-CSharp::ToolUI
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -376,23 +375,13 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4005925028865057454}
-  m_OnClick:
+  OnLeftClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7993873865241596292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8925307827232237042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdbf689f99ce1c4dbd140e2d6af1a42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ToolUI
-  image: {fileID: 4005925028865057454}
-  button: {fileID: 303125481116277186}
+  OnRightClick:
+    m_PersistentCalls:
+      m_Calls: []
+  button: {fileID: 0}
   itemObj: {fileID: 0}
   inventoryUI: {fileID: 0}
   equippedSprite: {fileID: 8814714610821056300}

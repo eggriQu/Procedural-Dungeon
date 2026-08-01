@@ -1038,6 +1038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6495771109473709830, guid: 74d11a7885b318c49ba20435ad6c1084,
         type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1427743324}
+    - target: {fileID: 6495771109473709830, guid: 74d11a7885b318c49ba20435ad6c1084,
+        type: 3}
       propertyPath: movementTransform
       value: 
       objectReference: {fileID: 298566441}

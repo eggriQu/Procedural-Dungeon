@@ -35,7 +35,7 @@ public class InventoryUI : MonoBehaviour
                 itemUI.transform.SetParent(uiInventoryParent);
                 inventoryUI.Add(item, 1);
                 itemQuantites[item].SetText("x" + inventoryUI[item]);
-                itemUI.Initialize(inventoryId, item, inventory.DropItem);
+                itemUI.Initialize(inventoryId, item, inventory.ExamineItem, inventory.DropItem);
             }
         }
         else
@@ -45,7 +45,7 @@ public class InventoryUI : MonoBehaviour
 
             itemUI.transform.SetParent(uiInventoryParent);
             inventoryUI.Add(item, 1);
-            itemUI.Initialize(inventoryId, item, inventory.EquipItem);
+            itemUI.Initialize(inventoryId, item, inventory.EquipItem, inventory.DropItem);
         }
     }
 
@@ -59,6 +59,12 @@ public class InventoryUI : MonoBehaviour
     {
         inventoryUI.Remove(item);
         itemQuantites.Remove(item);
+    }
+
+    public void UnequipItem()
+    {
+        inventory.currentlyEquipped = null;
+        inventory.equippedItemSprite.sprite = null;
     }
 
     public bool CheckForKey(Item item)

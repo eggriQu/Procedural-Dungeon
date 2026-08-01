@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour
 
     [Header("State")]
     public Item currentlyEquipped;
+    public SpriteRenderer equippedItemSprite;
     public int maxInventorySlots;
     public int inventoryCount;
     [SerializeField] SerializedDictionary<string, int> inventory = new();
@@ -88,8 +89,20 @@ public class Inventory : MonoBehaviour
 
     public void EquipItem(string inventoryId, Item item)
     {
-        currentlyEquipped = item;
-        Debug.Log(item.id + " Equipped");
+        if (currentlyEquipped != item)
+        {
+            currentlyEquipped = item;
+            equippedItemSprite.sprite = item.inGameSprite;
+        }
+        else if (currentlyEquipped == item)
+        {
+            ui.UnequipItem();
+        }
+    }
+
+    public void ExamineItem(string inventoryId, Item item)
+    {
+        Debug.Log(item.description);
     }
 
     public bool CheckForKey(string itemId)
